@@ -1,0 +1,220 @@
+---
+import { Icon } from 'astro-icon';
+import Header from '../components/Header.astro';
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+
+//@ts-ignore
+import Field from '../components/art/NeonParallax.astro';
+import HexaGridStacks from '../components/art/HexaGridStacks.astro';
+
+---
+
+<style is:global lang="scss">
+html {
+	overflow: hidden;
+}
+html, body {
+	height: 100%;
+	overscroll-behavior: none;
+}
+body {
+	overflow-x: scroll;
+	width: 100vw;
+	display: flex;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	scroll-behavior: smooth;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+}
+main {
+	scroll-snap-align: end;
+	height: 100%;
+	overflow-y: auto;
+	flex: 1 0 100vw;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	place-items: start center;
+	background: #000;
+	// position: relative;
+	// overflow-x: hidden;
+	> * {
+		width: 100%;
+		height: 100%;
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+	}
+}
+
+[show-aside] {
+	z-index: 10;
+	appearance: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 5px;
+	background: #fff5;
+	right: -2em;
+	display: block;
+	flex: 0 0 2em;
+	margin-right: -2em;
+	height: 2em;
+}
+
+[intro-section] {
+	min-height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: center;
+	// align-items: center;
+	padding: max(10vw, 25px);
+	gap: 25px;
+	> h2 {
+		font-size: calc(1.5em + 2vmin);
+		flex: 3 0 100px;
+		text-align: center;
+		max-width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	> p {
+		flex: 7 0 400px;
+		padding: 0 10vw;
+		// max-width: min(300px, 100%);	
+	}
+}
+
+[stacks-section] {
+	
+	display: grid;
+	place-items: center;
+	> h2 {
+		text-align: center;
+	}
+}
+
+[loved-stacks] {
+	[hexa-container] {
+		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 255, 8));
+	}
+}
+
+[known-stacks] {
+	[hexa-container] {
+		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 255, 183));
+	}
+}
+
+[hated-stacks] {
+	[hexa-container] {
+		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(255, 0, 0));
+		> a {
+			&:hover {
+				filter: brightness(0.75);
+				--z: -40px;
+				[astro-icon] {
+					filter: grayscale(0.8);
+				}
+			}
+		}
+	}
+}
+
+[stacks-to-learn] {
+	[hexa-container] {
+		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 85, 255));
+	}
+}
+
+</style>
+
+<html lang="en">
+	<head>
+		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
+	</head>
+	<body >
+		<Nav />
+		<button show-aside onclick="document.body.scrollTo({left: document.body.scrollLeft == 0 ? 99999999 : 0})"></button>
+		<main>
+			<Header/>
+			<Field>
+				<section intro-section title="introduction">
+					<h2>
+						<span>Full-stack</span>
+						<span>developer</span>
+					</h2>
+					<p>I'm a Web developer, looking for quest to complete. 
+						If you have the idea then I will make sure it's implemented perfectly.
+						My primary skill set includes Quasar, Vue with Typescript, Node/Express and Haxe. 
+						I also have experience in Continious Integration and Deployment with Github Workflow.</p>
+				</section>
+				<section stacks-section loved-stacks>
+					<h2>
+						Stacks I love
+					</h2>
+					<HexaGridStacks stacks={[
+						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
+						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
+						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
+						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
+						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
+						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
+						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
+						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
+						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
+						{link:"https://astro.build", icon:"vscode-icons:file-type-astro", name:"Astro"},
+						{link:"https://github.com", icon:"mdi:github", name:"Github"},
+						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
+						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
+						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
+						{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
+						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
+						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
+					]}/>
+				</section>
+				<section stacks-section known-stacks>
+					<h2>Stacks I know</h2>
+					<HexaGridStacks stacks={[
+						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
+						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
+						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Go"},
+						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
+						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
+						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
+						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
+					]}/>
+				</section>
+				<section stacks-section hated-stacks>
+					<h2>Stacks I hate</h2>
+					<HexaGridStacks stacks={[
+						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
+						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+						{link:"https://www.java.com", icon:"logos:java", name:"Java"},
+						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
+						{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
+						{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
+					]}/>
+				</section>
+				<section stacks-section stacks-to-learn>
+					<h2>Stacks I want to learn</h2>
+					<HexaGridStacks stacks={[
+						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
+						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
+						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
+						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
+						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
+						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
+						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
+						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
+					]}/>
+				</section>
+			</Field>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon';
+import Footer from './Footer.astro';
+---
+
+<style is:global lang="scss">
+aside {
+	display: flex;
+	z-index: 2;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: flex-start;
+	align-items: stretch;
+	text-align: center;
+	flex: 1 0 20ch;
+	scroll-snap-align: start;
+	width: 20ch;
+	max-height: 100%;
+	overflow-y: auto;
+	background: #222;
+	filter: drop-shadow(0 0 5px #0005);
+	> nav {
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+		align-items: stretch;
+		justify-content: flex-start;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		line-height: 2.5em;
+		text-decoration: none;
+		color: inherit;
+		padding: 0 5px;
+		transition: background ease-in-out .2s;
+		&:hover {
+			background: #fff2;
+		} 
+	}
+
+	[astro-icon] {
+		height: 1.2em;
+		margin-right: 5px;
+		color: var(--clr);
+		fill: var(--clr);
+
+	}
+}
+</style>
+
+<aside>
+	<div>
+		logo
+	</div>
+	<h2>Sacramentix</h2>
+	<nav>
+		<a href=""><Icon teal 	name="mdi:home"				/>	Home</a>
+		<a href=""><Icon green 	name="mdi:sprout"			/>	Projects</a>
+		<a href=""><Icon red 	name="mdi:presentation-play"/>	Ressources</a>
+		<a href=""><Icon orange name="mdi:stack-overflow"	/>	Stacks</a>
+		<a href=""><Icon white 	name="mdi:github"			/>	Github</a>
+		<a href=""><Icon white 	name="mdi:codepen"			/>	Codepen</a>
+		<a href=""><Icon orange name="mdi:account"			/>	CV</a>
+		<a href=""><Icon blue 	name="mdi:discord"			/>	Discord</a>
+		<a href=""><Icon white 	name="mdi:github"			/>	Website repo</a>
+	</nav>
+	<Footer/>
+</aside>
+

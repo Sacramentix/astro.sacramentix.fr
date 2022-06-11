@@ -1,0 +1,92 @@
+---
+
+
+---
+
+<div class="neon-parallax">
+  <div class="neon1">
+    <div class="wave1"></div>    
+  </div>
+  <div class="neon2">
+    <div class="wave2"></div>
+  </div>
+  <div class="wrapper">
+    <slot></slot>
+  </div>
+</div>
+
+
+<style is:global lang="scss">
+.neon-parallax {
+  --end:, 100% 0%, 100% 100%, 0% 100%;
+  padding-top: 65vmin;
+  position: relative;
+  overflow-y: auto;
+  perspective: 50vw;
+  overflow-x: hidden;
+}
+.wave1 {
+  background: hsl(203, 22%, 10%);
+/*   position: absolute; */
+  width: 100%;
+  height: 185px;
+  padding-bottom: 200px;
+  animation: 3s ease-in-out wave1 infinite alternate;
+  position: relative;
+
+}
+
+@keyframes wave1 {
+  0% {
+    //clip-path: polygon(0% 27%, 19% 21%, 32% 25%, 40% 20%, 46% 23%, 57% 15%, 68% 21%, 78% 11%, 87% 13%, 92% 6% var(--end));
+    clip-path: polygon(0% 74%, 19% 58%, 32% 25%, 40% 55%, 46% 63%, 57% 41%, 68% 58%, 78% 30%, 87% 35%, 92% 17% var(--end));
+  }
+  100% {
+    clip-path: polygon(0% 85%, 19% 80%, 32% 77%, 40% 55%, 46% 55%, 57% 18%, 68% 41%, 78% 13%, 87% 24%, 92% 8% var(--end));
+  }
+}
+.neon1 {
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.746)) drop-shadow(0 0 5px rgba(8, 78, 157, 0.746));
+  position: relative;
+  padding-bottom: 50px;
+  transform: translate3d(0, 0, -350px) scale(1.4);
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(100% - 52px);
+    width: 100%;
+    height: 500px;
+    background: hsl(203, 22%, 10%);
+  }
+}
+
+.wave2 {
+  background: #222;
+  width: 100%;
+  height: 185px;
+  animation: 5s ease-in-out wave2 infinite alternate;
+}
+
+@keyframes wave2 {
+  0% {
+    clip-path: polygon(0% 74%, 15% 63%, 35% 56%, 42% 55%, 48% 41%, 52% 68%, 75% 27%, 80% 41%, 83% 55%, 95% 16% var(--end));
+  }
+  100% {
+    clip-path: polygon(0% 70%, 19% 90%, 32% 41%, 40% 69%, 46% 87%, 57% 40%, 68% 83%, 78% 46%, 87% 6%, 92% 8% var(--end));
+  }
+}
+
+.neon2 {
+  filter: drop-shadow(0 0 5px hsla(182, 87%, 50%, 0.75))
+          drop-shadow(0 0 3px hsla(182, 87%, 80%, 0.55));
+  margin-top: -185px;
+  position: relative;
+}
+.wrapper {
+  // z-index: 10;
+  margin-top: -1px;
+  width: 100%;
+  position: absolute;
+  background: #222;
+}
+</style>
