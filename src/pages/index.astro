@@ -4,9 +4,11 @@ import Header from '../components/Header.astro';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 
+import WikiAdventureSvg from "../assets/wikiAdventure.svg";
+
 //@ts-ignore
 import Field from '../components/art/NeonParallax.astro';
-import HexaGridStacks from '../components/art/HexaGridStacks.astro';
+import HexaGrid from '../components/art/HexaGrid.astro';
 
 ---
 
@@ -22,6 +24,7 @@ body {
 	overflow-x: scroll;
 	width: 100vw;
 	display: flex;
+	flex-direction: row-reverse;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
 	scroll-behavior: smooth;
@@ -29,8 +32,17 @@ body {
 		width: 0;
 		height: 0;
 	}
+	> button {
+		order: 2;
+	}
 }
+
+aside {
+	order: 3;
+}
+
 main {
+	order: 1;
 	scroll-snap-align: end;
 	height: 100%;
 	overflow-y: auto;
@@ -88,6 +100,83 @@ main {
 	}
 }
 
+[projects-section] {
+	--sw: min(27rem, 90vw);
+	--sh: min(18rem, 60vw);
+	display: grid;
+	place-items: center;
+	perspective: var(--sw);
+	> div {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 25px;
+		gap: 75px;
+
+	}
+	
+	a {
+		text-decoration: none;
+		color: #fff;
+		display: block;
+		transform-style: preserve-3d;
+	
+		&:hover > div {
+			transform: rotate3d(1, 1, 0, 20deg);
+		}
+		> div {
+			transform-style: preserve-3d;
+			display: grid;
+			place-items: stretch;
+			transition: .4s transform ease-in-out;
+			width: var(--sw);
+			min-height: var(--sh);
+			position: relative;
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				inset: 0;
+			}
+			&, &:before, &:after {
+				background: #3338;
+				border-radius: 15px;
+				border: 1px solid #fff4;
+				box-shadow: 0 0 1px 2px #0ff;
+			}
+			&:before {
+				transform: translate3d(0, 0, calc(var(--sw) / -6));
+			}
+			&:after {
+				transform: translate3d(0, 0, calc(var(--sw) / -3));
+			}
+		}
+
+		[z-pop] {
+			display: grid;
+			place-items: center;
+			padding: 3em;
+			min-height: var(--sh);
+			transform-style: preserve-3d;
+			transform: translate3d(0, 0, calc(var(--sw) / 8));
+			width: var(--sw);
+			min-height: var(--sh);
+
+		}
+
+		img {
+			height: calc(var(--sh) / 2);
+		}
+		p {
+			text-align: center;
+			padding: 0;
+		}
+	}
+
+	> h2 {
+		text-align: center;
+	}
+}
+
 [stacks-section] {
 	
 	display: grid;
@@ -99,19 +188,19 @@ main {
 
 [loved-stacks] {
 	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 255, 8));
+		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(0, 255, 0));
 	}
 }
 
 [known-stacks] {
 	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 255, 183));
+		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(0, 255, 183));
 	}
 }
 
 [hated-stacks] {
 	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(255, 0, 0));
+		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(255, 0, 0));
 		> a {
 			&:hover {
 				filter: brightness(0.75);
@@ -126,7 +215,7 @@ main {
 
 [stacks-to-learn] {
 	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 5px rgb(0, 85, 255));
+		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 3px rgb(0, 0, 255));
 	}
 }
 
@@ -136,9 +225,11 @@ main {
 	<head>
 		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
 	</head>
-	<body >
-		<Nav />
-		<button show-aside onclick="document.body.scrollTo({left: document.body.scrollLeft == 0 ? 99999999 : 0})"></button>
+	<body>
+		<Nav/>
+		<button show-aside onclick="document.body.scrollTo({left: document.body.scrollLeft != 0 ? 0 : -9999999})">
+			<Icon name="mdi:menu"/>
+		</button>
 		<main>
 			<Header/>
 			<Field>
@@ -152,11 +243,42 @@ main {
 						My primary skill set includes Quasar, Vue with Typescript, Node/Express and Haxe. 
 						I also have experience in Continious Integration and Deployment with Github Workflow.</p>
 				</section>
+				<section projects-section>
+					<h2>
+						Projects
+					</h2>
+					<div>
+						<a href="https://daily.wikiadventu.re" target="_blank">
+							<div>
+								<div z-pop>
+									<img src={WikiAdventureSvg} alt="The Wiki Adventure logo">
+									<p>
+										Wiki Adventure is a multiplayer game combining culture and speed. 
+										Players compete against each other on Wikipedia and have to scroll 
+										through the pages as quickly as possible to win.
+									</p>
+								</div>
+							</div>
+						</a>
+						<a href="https://daily.wikiadventu.re" target="_blank">
+							<div>
+								<div z-pop>
+									<img src={WikiAdventureSvg} alt="The Wiki Adventure logo">
+									<p>
+										Wiki Adventure is a multiplayer game combining culture and speed. 
+										Players compete against each other on Wikipedia and have to scroll 
+										through the pages as quickly as possible to win.
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</section>
 				<section stacks-section loved-stacks>
 					<h2>
 						Stacks I love
 					</h2>
-					<HexaGridStacks stacks={[
+					<HexaGrid stacks={[
 						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
 						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
 						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
@@ -170,15 +292,17 @@ main {
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
+						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
 						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
 						{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
 						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
 						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
+						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
 					]}/>
 				</section>
 				<section stacks-section known-stacks>
 					<h2>Stacks I know</h2>
-					<HexaGridStacks stacks={[
+					<HexaGrid stacks={[
 						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
 						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
 						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
@@ -191,7 +315,7 @@ main {
 				</section>
 				<section stacks-section hated-stacks>
 					<h2>Stacks I hate</h2>
-					<HexaGridStacks stacks={[
+					<HexaGrid stacks={[
 						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
 						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
 						{link:"https://www.java.com", icon:"logos:java", name:"Java"},
@@ -202,7 +326,7 @@ main {
 				</section>
 				<section stacks-section stacks-to-learn>
 					<h2>Stacks I want to learn</h2>
-					<HexaGridStacks stacks={[
+					<HexaGrid stacks={[
 						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
 						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
 						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
@@ -212,6 +336,7 @@ main {
 						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
 						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
 						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
+						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
 					]}/>
 				</section>
 			</Field>
