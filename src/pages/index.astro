@@ -5,10 +5,13 @@ import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
+import DailyWikiAdventureSvg from "../assets/dailyWikiAdventure.svg";
+import AstroSvg from "../assets/astro.svg";
 
 //@ts-ignore
 import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
+import ProjectCards from '../components/art/ProjectCards.astro';
 
 ---
 
@@ -32,9 +35,6 @@ body {
 		width: 0;
 		height: 0;
 	}
-	> button {
-		order: 2;
-	}
 }
 
 aside {
@@ -52,8 +52,6 @@ main {
 	grid-template-columns: 1fr;
 	place-items: start center;
 	background: #000;
-	// position: relative;
-	// overflow-x: hidden;
 	> * {
 		width: 100%;
 		height: 100%;
@@ -68,13 +66,22 @@ main {
 	margin: 0;
 	padding: 0;
 	border: none;
+	color: #ddd;
+	backdrop-filter: blur(2px);
 	border-radius: 5px;
-	background: #fff5;
+	background: #fff2;
+	border: 1px solid #fff4;
 	right: -2em;
 	display: block;
 	flex: 0 0 2em;
 	margin-right: -2em;
 	height: 2em;
+	order: 2;
+	transition: .1s color ease-in-out;
+	cursor: pointer;
+	&:active {
+		color: #555;
+	}
 }
 
 [intro-section] {
@@ -101,77 +108,8 @@ main {
 }
 
 [projects-section] {
-	--sw: min(27rem, 90vw);
-	--sh: min(18rem, 60vw);
 	display: grid;
 	place-items: center;
-	perspective: var(--sw);
-	> div {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		padding: 25px;
-		gap: 75px;
-
-	}
-	
-	a {
-		text-decoration: none;
-		color: #fff;
-		display: block;
-		transform-style: preserve-3d;
-	
-		&:hover > div {
-			transform: rotate3d(1, 1, 0, 20deg);
-		}
-		> div {
-			transform-style: preserve-3d;
-			display: grid;
-			place-items: stretch;
-			transition: .4s transform ease-in-out;
-			width: var(--sw);
-			min-height: var(--sh);
-			position: relative;
-			&:before, &:after {
-				content: "";
-				position: absolute;
-				inset: 0;
-			}
-			&, &:before, &:after {
-				background: #3338;
-				border-radius: 15px;
-				border: 1px solid #fff4;
-				box-shadow: 0 0 1px 2px #0ff;
-			}
-			&:before {
-				transform: translate3d(0, 0, calc(var(--sw) / -6));
-			}
-			&:after {
-				transform: translate3d(0, 0, calc(var(--sw) / -3));
-			}
-		}
-
-		[z-pop] {
-			display: grid;
-			place-items: center;
-			padding: 3em;
-			min-height: var(--sh);
-			transform-style: preserve-3d;
-			transform: translate3d(0, 0, calc(var(--sw) / 8));
-			width: var(--sw);
-			min-height: var(--sh);
-
-		}
-
-		img {
-			height: calc(var(--sh) / 2);
-		}
-		p {
-			text-align: center;
-			padding: 0;
-		}
-	}
-
 	> h2 {
 		text-align: center;
 	}
@@ -202,7 +140,7 @@ main {
 	[hexa-container] {
 		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(255, 0, 0));
 		> a {
-			&:hover {
+			&:is(:hover, :focus) {
 				filter: brightness(0.75);
 				--z: -40px;
 				[astro-icon] {
@@ -240,41 +178,29 @@ main {
 					</h2>
 					<p>I'm a Web developer, looking for quest to complete. 
 						If you have the idea then I will make sure it's implemented perfectly.
+						I'm always follow lastest technologie and use them wisely.
 						My primary skill set includes Quasar, Vue with Typescript, Node/Express and Haxe. 
 						I also have experience in Continious Integration and Deployment with Github Workflow.</p>
 				</section>
-				<section projects-section>
+				<section projects-section id="projects">
 					<h2>
 						Projects
 					</h2>
-					<div>
-						<a href="https://daily.wikiadventu.re" target="_blank">
-							<div>
-								<div z-pop>
-									<img src={WikiAdventureSvg} alt="The Wiki Adventure logo">
-									<p>
-										Wiki Adventure is a multiplayer game combining culture and speed. 
-										Players compete against each other on Wikipedia and have to scroll 
-										through the pages as quickly as possible to win.
-									</p>
-								</div>
-							</div>
-						</a>
-						<a href="https://daily.wikiadventu.re" target="_blank">
-							<div>
-								<div z-pop>
-									<img src={WikiAdventureSvg} alt="The Wiki Adventure logo">
-									<p>
-										Wiki Adventure is a multiplayer game combining culture and speed. 
-										Players compete against each other on Wikipedia and have to scroll 
-										through the pages as quickly as possible to win.
-									</p>
-								</div>
-							</div>
-						</a>
-					</div>
+					<ProjectCards projects={[
+						{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", description: `
+							Wiki Adventure is a multiplayer game combining culture and speed. 
+							Players compete against each other on Wikipedia and have to scroll 
+							through the pages as quickly as possible to win.`},
+						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", description: `
+							Daily Wiki Adventure is a solo daily game where you must go from a 
+							wikipedia start page to a target page as fast as you can with fewest link possible.
+							Share your Dail Wiki Adventure epic now!`},
+						{link: "#", img: AstroSvg ,alt: "Astro logo", description: `
+							I recently redesigned my website with Astro.
+							Better than ever before!`},
+					]}/>
 				</section>
-				<section stacks-section loved-stacks>
+				<section stacks-section loved-stacks id="stacks">
 					<h2>
 						Stacks I love
 					</h2>
@@ -288,7 +214,7 @@ main {
 						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-						{link:"https://astro.build", icon:"vscode-icons:file-type-astro", name:"Astro"},
+						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},

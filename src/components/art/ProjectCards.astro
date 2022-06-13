@@ -1,0 +1,100 @@
+---
+export interface Props {
+    projects: Project[]
+}
+
+type Project = {
+    link: string,
+    img: string,
+    alt: string,
+    description: string,
+}
+
+const { projects } = Astro.props as Props;
+
+---
+
+<style is:global lang="scss">
+[projects-card] {
+
+    --sw: min(25rem, 90vw);
+	--sh: min(14rem, 60vw);
+	perspective: var(--sw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 25px;
+    gap: 75px;
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: grid;
+        place-items: stretch center;
+        height: 100%;
+        flex: 1 1 auto;
+
+        &:is(:hover, :focus) > div {
+            transform: rotate3d(1, 1, 0, 20deg);
+        }
+        > div {
+            transform-style: preserve-3d;
+            display: grid;
+            place-items: stretch;
+            transition: .4s transform ease-in-out;
+            width: var(--sw);
+            min-height: var(--sh);
+            position: relative;
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                inset: 0;
+            }
+            &, &:before, &:after {
+                background: #3338;
+                border-radius: 15px;
+                border: 1px solid #fff4;
+                box-shadow: 0 0 1px 2px #0ff;
+            }
+            &:before {
+                transform: translate3d(0, 0, calc(var(--sw) / -6));
+            }
+            &:after {
+                transform: translate3d(0, 0, calc(var(--sw) / -3));
+            }
+        }
+
+        [z-pop] {
+            display: grid;
+            place-items: center;
+            padding: 3rem;
+            min-height: var(--sh);
+            transform-style: preserve-3d;
+            transform: translate3d(0, 0, calc(var(--sw) / 8));
+            width: var(--sw);
+            min-height: var(--sh);
+
+        }
+
+        img {
+            height: calc(var(--sh) / 2);
+        }
+        p {
+            text-align: center;
+            padding: 0;
+        }
+    }
+}
+</style>
+<div projects-card>
+    { projects.map(p => (
+    <a target="_blank" href={p.link}>
+        <div>
+            <div z-pop>
+                <img src={p.img} alt={p.alt}/>
+                <p>{p.description}</p>
+            </div>
+        </div>
+    </a>
+    ))}
+</div>

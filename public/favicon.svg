@@ -1,0 +1,48 @@
+<svg width="500.5" height="710.6" version="1.1" viewBox="0 0 132.4 188" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient1084">
+   <stop stop-color="#097074" offset="0"/>
+   <stop stop-color="#043436" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1041-3-1">
+   <stop stop-color="#0ca1a7" offset="0"/>
+   <stop stop-color="#11e5ee" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1102" x1="466.9" x2="407.9" y1="-181.1" y2="-181.1" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#097074" offset="0"/>
+   <stop stop-color="#043436" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1110" x1="466.9" x2="407.9" y1="-181.1" y2="-181.1" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1084"/>
+  <linearGradient id="linearGradient1120" x1="671.1" x2="875.2" y1="-401.1" y2="-127" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1041-3-1"/>
+  <linearGradient id="linearGradient1122" x1="872" x2="643.7" y1="-182.3" y2="-405.2" gradientUnits="userSpaceOnUse">
+   <stop offset="0"/>
+   <stop stop-color="#12e6ee" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1124" x1="415.7" x2="634.6" y1="-723.8" y2="-506.4" gradientUnits="userSpaceOnUse">
+   <stop offset="0"/>
+   <stop stop-color="#12e6ee" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient1126" x1="643.7" x2="412.4" y1="-427.2" y2="-667.2" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1041-3-1"/>
+  <linearGradient id="linearGradient1128" x1="820.6" x2="879.6" y1="-673.2" y2="-673.2" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1084"/>
+  <linearGradient id="linearGradient1226" x1="643.7" x2="875.2" y1="-427.2" y2="-127" gradientTransform="translate(-349 213.4)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1041-3-1"/>
+ </defs>
+ <g transform="matrix(.2244 0 0 .2688 10.4 60.87)">
+  <g transform="translate(-9.181 -3.284)" fill="none">
+   <g transform="translate(104.2 39.13)">
+    <g transform="translate(-140.7 300.6)" fill="none">
+     <path d="m235.8-513.7c-48.92 0-92.13 19.41-123.2 47.25-31.11 27.85-51.57 64.46-51.09 103 0.2296 18.34-9e-3 52.73-9e-3 52.73l0.0115 0.0115c7.4e-4 0.3758-9e-3 0.7504-5e-3 1.127 0.4919 39.29 22.05 75.73 53.41 103.2 31.36 27.46 73.9 46.44 120.9 46.44h117.9c32.31 0 63.11 13.54 85.43 33.1 12.8 11.21 22.35 24.25 28.22 36.85-5.535 11.85-14.37 24.15-26.34 34.86-21.88 19.59-52.74 33.53-87.32 33.53h-265.3l-29.48 53.87 29.48 53.87 2e-3 -0.0019h265.3c48.92 0 92.12-19.41 123.2-47.25 31.11-27.85 51.57-64.46 51.09-103-0.2296-18.34 7e-3 -52.73 7e-3 -52.73l-0.0114-0.0115c-8.2e-4 -0.3751 9e-3 -0.7491 5e-3 -1.125-0.492-39.29-22.05-75.73-53.41-103.2-31.36-27.46-73.9-46.44-120.9-46.44h-58.96v-2e-3h-58.96c-32.31 0-63.11-13.54-85.43-33.1-12.8-11.21-22.35-24.25-28.22-36.85 5.535-11.85 14.37-24.15 26.34-34.86 21.88-19.59 52.74-33.53 87.32-33.53h265.3l29.48-53.87-29.48-53.87zm-2.872 299.9c0.9554 0.0157 1.91 0.0365 2.87 0.0365h58.96v2e-3h-58.96c-0.9581 0-1.914-0.0148-2.87-0.0384z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="url(#linearGradient1226)" image-rendering="auto" shape-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+    </g>
+    <g transform="translate(-489.7 514)">
+     <g shape-rendering="auto">
+      <path d="m702.7-127.2c48.92 0 92.12-19.41 123.2-47.26 31.11-27.85 51.57-64.46 51.09-103-0.2296-18.34 8e-3 -52.73 8e-3 -52.73s-36.7-35.82-53.41-50.46c-31.36-27.46-73.9-46.44-120.9-46.44h-58.96v53.87h58.96c32.31 0 63.1 13.54 85.43 33.1 22.33 19.55 34.8 44.64 35.04 63.34 0.2222 17.74-11.27 42.65-33.15 62.24-21.88 19.59-52.74 33.53-87.32 33.53l-235.8 2e-3 -29.48 53.87z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="url(#linearGradient1120)" image-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+      <path d="m702.7-181.1c48.92 0 92.12-19.41 123.2-47.26 31.11-27.85 51.57-64.46 51.09-103-0.4919-39.29-22.05-75.73-53.41-103.2-31.36-27.46-73.9-46.44-120.9-46.44h-58.96v53.87h58.96c32.31 0 63.1 13.54 85.43 33.1 22.33 19.55 34.8 44.64 35.04 63.34 0.2222 17.74-11.27 42.65-33.15 62.24-21.88 19.59-52.74 33.53-87.32 33.53h-265.3l29.48 53.87z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="url(#linearGradient1122)" image-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+      <path d="m584.8-727.1c-48.92 0-92.12 19.41-123.2 47.26-31.11 27.85-51.57 64.46-51.09 103 0.2296 18.34-0.01 52.73-0.01 52.73s36.7 35.82 53.41 50.46c31.36 27.46 73.9 46.44 120.9 46.44h58.96v-53.87h-58.96c-32.31 0-63.1-13.54-85.43-33.1-22.33-19.55-34.8-44.64-35.04-63.34-0.2221-17.74 11.27-42.65 33.15-62.24 21.88-19.59 52.74-33.53 87.32-33.53h235.8l29.48-53.87z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="url(#linearGradient1124)" image-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+      <path d="m584.8-673.2c-48.92 0-92.12 19.41-123.2 47.26-31.11 27.85-51.57 64.46-51.09 103 0.4919 39.29 22.05 75.73 53.41 103.2 31.36 27.46 73.9 46.44 120.9 46.44h58.96v-53.87h-58.96c-32.31 0-63.1-13.54-85.43-33.1-22.33-19.55-34.8-44.64-35.04-63.34-0.2222-17.74 11.27-42.65 33.15-62.24 21.88-19.59 52.74-33.53 87.32-33.53h265.3l-29.48-53.87z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="url(#linearGradient1126)" image-rendering="auto" solid-color="#000000" stop-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+     </g>
+     <path d="m850.1-727.1-29.48 53.87 29.48 53.87 29.48-53.87z" fill="url(#linearGradient1128)"/>
+     <path d="m437.4-235-29.48 53.87 29.48 53.87 29.48-53.87z" fill="url(#linearGradient1110)" stroke="url(#linearGradient1102)" stroke-width="1.077px"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

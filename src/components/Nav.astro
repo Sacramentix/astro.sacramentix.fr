@@ -45,24 +45,28 @@ aside {
 		fill: var(--clr);
 
 	}
+	[s-logo] {
+		max-width: 60%;
+		padding-top: 25px;
+		place-self: center;
+		filter: drop-shadow(0 0 1px #fffc) drop-shadow(0 0 3px #0ffc) drop-shadow(0 0 7px #0ffc);
+	}
 }
 </style>
 
 <aside>
-	<div>
-		logo
-	</div>
+	<img s-logo src="/favicon.svg" alt=" fake 3d S logo">
 	<h2>Sacramentix</h2>
 	<nav>
-		<a href=""><Icon teal 	name="mdi:home"				/>	Home</a>
-		<a href=""><Icon green 	name="mdi:sprout"			/>	Projects</a>
-		<a href=""><Icon red 	name="mdi:presentation-play"/>	Ressources</a>
-		<a href=""><Icon orange name="mdi:stack-overflow"	/>	Stacks</a>
-		<a href=""><Icon white 	name="mdi:github"			/>	Github</a>
-		<a href=""><Icon white 	name="mdi:codepen"			/>	Codepen</a>
-		<a href=""><Icon orange name="mdi:account"			/>	CV</a>
-		<a href=""><Icon blue 	name="mdi:discord"			/>	Discord</a>
-		<a href=""><Icon white 	name="mdi:github"			/>	Website repo</a>
+		<a href="#"><Icon teal 	name="mdi:home"				/>	Home</a>
+		<a href="#projects"><Icon green 	name="mdi:sprout"			/>	Projects</a>
+		<!-- <a href=""><Icon red 	name="mdi:presentation-play"/>	Ressources</a> -->
+		<a href="#stacks"><Icon orange name="mdi:stack-overflow"	/>	Stacks</a>
+		<a href="https://github.com/Sacramentix">					  <Icon white  name="mdi:github" />	Github</a>
+		<a href="https://codepen.io/sacramentix">			  		  <Icon white  name="mdi:codepen"/>	Codepen</a>
+		<a href="https://www.doyoubuzz.com/benjamin-gilloury">		  <Icon orange name="mdi:account"/>	CV</a>
+		<a href="https://discord.gg/cUnxzGa">						  <Icon blue   name="mdi:discord"/>	Discord</a>
+		<a href="https://github.com/Sacramentix/astro.sacramentix.fr"><Icon white  name="mdi:github" />	Website repo</a>
 	</nav>
 	<Footer/>
 </aside>

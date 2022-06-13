@@ -1,13 +1,24 @@
 ---
 import { Icon } from 'astro-icon';
 
+
 export interface Props {
-    stacks: {
-        link: string,
-        name: string,
-        icon: string
-    }[]
+    stacks: Stack[]
 }
+
+type StackIcon = {
+    link: string,
+    name: string,
+    icon: string,
+}
+type StackImg = {
+    link: string,
+    name: string,
+    img: string,
+    alt: string
+}
+type Stack = StackIcon | StackImg;
+
 const { stacks } = Astro.props as Props;
 
 ---
@@ -22,8 +33,8 @@ const { stacks } = Astro.props as Props;
     /* clip-path */
     --h: 0.5;  
     --v: 0.25; 
-    --hc:calc(clamp(0,var(--h),0.5) * var(--s)) ;
-    --vc:calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+    --hc: calc(clamp(0,var(--h),0.5) * var(--s)) ;
+    --vc: calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
 
     /*margin */
     --mv: 10px; /* vertical */
@@ -63,7 +74,7 @@ const { stacks } = Astro.props as Props;
             transition: .2s all ease-in-out;
             filter: drop-shadow(0 0 5px #000d);
         }
-        &:hover {
+        &:is(:hover, :focus) {
             filter: saturate(1.75) brightness(1.2);
             --z: 20px;
             > [astro-icon] {
@@ -72,7 +83,7 @@ const { stacks } = Astro.props as Props;
             }
         }
         &:nth-child(2n) {
-            &:hover {
+            &:is(:hover, :focus) {
                 > [astro-icon] {
                     transform: translate3d(0, 10px, var(--z)) rotate3d(0, 0, -1, 20deg);
                 }
@@ -93,10 +104,14 @@ const { stacks } = Astro.props as Props;
 
 <div hexa-grid>
     <div hexa-container>
-        { stacks.map(s => (
+        { stacks.map((s:any) => (
         <a target="_blank" href={s.link}>
-            <Icon name={s.icon}/>
-            <p>{s.name}</p>
+            { s.icon != undefined ?
+                <Icon name={s.icon}/>
+                <p>{s.name}</p> :
+                <img src={s.img} alt={s.alt} astro-icon/>
+                <p>{s.name}</p>
+            }
         </a>
         ))}
     </div>
