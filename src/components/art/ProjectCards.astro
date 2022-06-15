@@ -7,6 +7,8 @@ type Project = {
     link: string,
     img: string,
     alt: string,
+    width: number,
+    height: number,
     description: string,
 }
 
@@ -91,7 +93,7 @@ const { projects } = Astro.props as Props;
     <a target="_blank" href={p.link}>
         <div>
             <div z-pop>
-                <img src={p.img} alt={p.alt}/>
+                <img src={p.img} alt={p.alt} width={p.width} height={p.height}/>
                 <p>{p.description}</p>
             </div>
         </div>

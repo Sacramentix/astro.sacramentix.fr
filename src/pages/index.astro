@@ -165,7 +165,7 @@ main {
 	</head>
 	<body>
 		<Nav/>
-		<button show-aside onclick="document.body.scrollTo({left: document.body.scrollLeft != 0 ? 0 : -9999999})">
+		<button show-aside aria-label="switch aside visibilty" onclick="document.body.scrollTo({left: document.body.scrollLeft != 0 ? 0 : -9999999})">
 			<Icon name="mdi:menu"/>
 		</button>
 		<main>
@@ -188,15 +188,15 @@ main {
 						Projects
 					</h2>
 					<ProjectCards projects={[
-						{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", description: `
+						{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
 							Wiki Adventure is a multiplayer game combining culture and speed. 
 							Players compete against each other on Wikipedia and have to scroll 
 							through the pages as quickly as possible to win.`},
-						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", description: `
+						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
 							Daily Wiki Adventure is a solo daily game where you must go from a 
 							wikipedia start page to a target page as fast as you can with fewest link possible.
 							Share your Dail Wiki Adventure epic now!`},
-						{link: "#", img: AstroSvg ,alt: "Astro logo", description: `
+						{link: "#", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
 							I recently redesigned my website with Astro.
 							Better than ever before!`},
 					]}/>
@@ -233,7 +233,7 @@ main {
 						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
 						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
 						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
-						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Go"},
+						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
 						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
 						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
 						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},

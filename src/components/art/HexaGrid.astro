@@ -109,7 +109,7 @@ const { stacks } = Astro.props as Props;
             { s.icon != undefined ?
                 <Icon name={s.icon}/>
                 <p>{s.name}</p> :
-                <img src={s.img} alt={s.alt} astro-icon/>
+                <img src={s.img} alt={s.alt} width="32" height="32" astro-icon/>
                 <p>{s.name}</p>
             }
         </a>
