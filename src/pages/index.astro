@@ -12,41 +12,13 @@ import AstroSvg from "../assets/astro.svg";
 import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
 import ProjectCards from '../components/art/ProjectCards.astro';
+import SideMenuBody from '../layouts/SideMenuBody.astro';
 
 ---
 
 <style is:global lang="scss">
-html {
-	overflow: hidden;
-}
-html, body {
-	height: 100%;
-	overscroll-behavior: none;
-}
-body {
-	overflow-x: scroll;
-	width: 100vw;
-	display: flex;
-	flex-direction: row-reverse;
-	scroll-snap-type: x mandatory;
-	scrollbar-width: none;
-	scroll-behavior: smooth;
-	&::-webkit-scrollbar {
-		width: 0;
-		height: 0;
-	}
-}
-
-aside {
-	order: 3;
-}
 
 main {
-	order: 1;
-	scroll-snap-align: end;
-	height: 100%;
-	overflow-y: auto;
-	flex: 1 0 100vw;
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr;
@@ -59,31 +31,6 @@ main {
 		grid-row: 1 / 2;
 	}
 }
-
-[show-aside] {
-	z-index: 10;
-	appearance: none;
-	margin: 0;
-	padding: 0;
-	border: none;
-	color: #ddd;
-	backdrop-filter: blur(2px);
-	border-radius: 5px;
-	background: #fff2;
-	border: 1px solid #fff4;
-	right: -2em;
-	display: block;
-	flex: 0 0 2em;
-	margin-right: -2em;
-	height: 2em;
-	order: 2;
-	transition: .1s color ease-in-out;
-	cursor: pointer;
-	&:active {
-		color: #555;
-	}
-}
-
 [intro-section] {
 	min-height: 500px;
 	display: flex;
@@ -103,7 +50,7 @@ main {
 	> ul {
 		flex: 7 0 400px;
 		padding: 0 10vw;
-		// max-width: min(300px, 100%);	
+		max-width: 80vw;
 	}
 }
 
@@ -163,13 +110,8 @@ main {
 	<head>
 		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
 	</head>
-	<body>
-		<Nav/>
-		<button show-aside aria-label="switch aside visibilty" onclick="document.body.scrollTo({left: document.body.scrollLeft != 0 ? 0 : -9999999})">
-			<Icon name="mdi:menu"/>
-		</button>
-		<main>
-			<Header/>
+	<SideMenuBody>
+		<Header/>
 			<Field>
 				<section intro-section title="introduction">
 					<h2>
@@ -210,8 +152,8 @@ main {
 						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
 						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
 						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
-						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
 						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
+						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
 						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
@@ -270,6 +212,5 @@ main {
 					]}/>
 				</section>
 			</Field>
-		</main>
-	</body>
+	</SideMenuBody>
 </html>

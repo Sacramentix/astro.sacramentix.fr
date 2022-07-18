@@ -28,7 +28,7 @@ const { stacks } = Astro.props as Props;
     display: grid;
     //hex-cells
     --n: 6; /* per line */
-    --s: 150px; /* size */
+    --s: 130px; /* size */
     --r: 1.15; /* ratio */
     /* clip-path */
     --h: 0.5;  
@@ -37,7 +37,7 @@ const { stacks } = Astro.props as Props;
     --vc: calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
 
     /*margin */
-    --mv: 10px; /* vertical */
+    --mv: 5px; /* vertical */
     --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal */
     /* for the float*/
     --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
