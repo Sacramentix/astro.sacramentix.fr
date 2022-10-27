@@ -2,7 +2,6 @@
 import { Icon } from 'astro-icon';
 import Header from '../components/Header.astro';
 import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
 import DailyWikiAdventureSvg from "../assets/dailyWikiAdventure.svg";
@@ -72,36 +71,29 @@ main {
 }
 
 [loved-stacks] {
-	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(0, 255, 0));
-	}
+	--neon-rgb: 0, 255, 255;
 }
 
 [known-stacks] {
-	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(0, 255, 183));
-	}
+	--neon-rgb: 73, 242, 39;
+	// --gradient-from: hsl(130, 10%, 20%);
+	// --gradient-to: hsl(130, 50%, 25%);
 }
 
 [hated-stacks] {
-	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 3px rgb(255, 0, 0));
-		> a {
-			&:is(:hover, :focus) {
-				filter: brightness(0.75);
-				--z: -40px;
-				[astro-icon] {
-					filter: grayscale(0.8);
-				}
-			}
-		}
-	}
+	--icon-y: 5px;
+	--icon-z: -20px;
+	--icon-saturate: saturate(.2);
+	--icon-bright: .7;
+
+	--gradient-from: hsl(39, 0%, 10%);
+	--gradient-to: hsl(0, 20%, 20%);
+
+	--neon-rgb: 192, 4, 4;
 }
 
 [stacks-to-learn] {
-	[hexa-container] {
-		filter: drop-shadow(0px 0px 1px #fffa) drop-shadow(0px 0px 3px rgb(0, 0, 255));
-	}
+	--neon-rgb: 73, 73, 255;
 }
 
 </style>
@@ -118,10 +110,15 @@ main {
 						<span>Full-stack</span>
 						<span>developer</span>
 					</h2>
+					<p>
+						I'm a perfectionnist web developer who is looking challenging quest to complete.
+						I love to build new idea with latest stack I've discover.
+						I make my project has accesible as possible for everyone without discrimination.
+
+					</p>
 					<ul>
-						<li>I'm a perfectionnist web developer, looking for quest to complete.</li>
 						<li>I'm always following lastest technologie and use them wisely to write clean code.</li>
-						<li>I'm an adept of the Jamstack and the KISS principle.</li>
+						<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
 						<li>I'm agile critical thinkers</li>
 					</ul>
 				</section>
@@ -138,8 +135,12 @@ main {
 							Daily Wiki Adventure is a solo daily game where you must go from a 
 							wikipedia start page to a target page as fast as you can with fewest link possible.
 							Share your Dail Wiki Adventure epic now!`},
-						{link: "#", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
-							I recently redesigned my website with Astro.
+						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
+							Daily Wiki Adventure is a solo daily game where you must go from a 
+							wikipedia start page to a target page as fast as you can with fewest link possible.
+							Share your Dail Wiki Adventure epic now!`},
+						{link: "https://astro.build", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
+							I recently redesigned my website you see here with Astro.
 							Better than ever before!`},
 					]}/>
 				</section>
@@ -158,6 +159,7 @@ main {
 						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
 						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
+						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
@@ -203,7 +205,6 @@ main {
 						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
 						// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
 						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
-						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
 						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
 						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
 						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},

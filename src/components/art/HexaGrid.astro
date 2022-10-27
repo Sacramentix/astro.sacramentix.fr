@@ -24,96 +24,263 @@ const { stacks } = Astro.props as Props;
 ---
 
 <style is:global lang="scss">
-[hexa-grid] {
-    display: grid;
-    //hex-cells
-    --n: 6; /* per line */
-    --s: 130px; /* size */
-    --r: 1.15; /* ratio */
-    /* clip-path */
-    --h: 0.5;  
-    --v: 0.25; 
-    --hc: calc(clamp(0,var(--h),0.5) * var(--s)) ;
-    --vc: calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
+// [hexa-grid] {
+//     display: grid;
+//     //hex-cells
+//     --n: 6; /* per line */
+//     --s: 130px; /* size */
+//     --r: 1.15; /* ratio */
+//     /* clip-path */
+//     --h: 0.5;  
+//     --v: 0.25; 
+//     --hc: calc(clamp(0,var(--h),0.5) * var(--s)) ;
+//     --vc: calc(clamp(0,var(--v),0.5) * var(--s) * var(--r)); 
 
-    /*margin */
-    --mv: 5px; /* vertical */
-    --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal */
-    /* for the float*/
-    --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
-    [astro-icon] {
-        height: 3em;
-    }
-}
-[hexa-container] {
-    grid-column: 1/-1;
-    max-width: calc(var(--n)*var(--s) + var(--n)*var(--mv)*2);
-    margin:0 auto;
-    font-size: 0; /*disable white space between inline block element */
-    position:relative;
-    padding-bottom: calc(var(--s) * 1.33333333);
-    > a {
-        text-decoration: none;
-        color: #ddd;
-        width: var(--s);
-        margin: var(--mv) var(--mh);
-        height: calc(var(--s)*var(--r)); 
-        display: inline-grid;
-        place-items: center;
-        font-size:initial;
-        background: #333;
-        clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
-        margin-bottom: calc(var(--mv) - var(--vc));
-        perspective: var(--s);
-        transition: .2s all ease-in-out;
-        > p {
-            align-self: flex-start;
-            margin: 0;
-        }
-        > [astro-icon] {
-            transition: .2s all ease-in-out;
-            filter: drop-shadow(0 0 5px #000d);
-            width: auto;
-        }
-        &:is(:hover, :focus) {
-            filter: saturate(1.75) brightness(1.2);
-            --z: 20px;
-            > [astro-icon] {
-                filter: drop-shadow(-6px -6px 5px #000a);
-                transform: translate3d(0, 10px, var(--z)) rotate3d(0, 0, 1, 20deg);
+//     /*margin */
+//     --mv: 5px; /* vertical */
+//     --mh: calc(var(--mv) + (var(--s) - 2*var(--hc))/2); /* horizontal */
+//     /* for the float*/
+//     --f: calc(2*var(--s)*var(--r) + 4*var(--mv)  - 2*var(--vc) - 2px);
+//     [astro-icon] {
+//         height: 3em;
+//     }
+// }
+// [hexa-container] {
+//     grid-column: 1/-1;
+//     max-width: calc(var(--n)*var(--s) + var(--n)*var(--mv)*2);
+//     margin:0 auto;
+//     font-size: 0; /*disable white space between inline block element */
+//     position:relative;
+//     padding-bottom: calc(var(--s) * 1.33333333);
+//     > a {
+//         text-decoration: none;
+//         color: #ddd;
+//         width: var(--s);
+//         margin: var(--mv) var(--mh);
+//         height: calc(var(--s)*var(--r)); 
+//         display: inline-grid;
+//         place-items: center;
+//         font-size:initial;
+//         background: #333;
+//         clip-path: polygon(var(--hc) 0, calc(100% - var(--hc)) 0,100% var(--vc),100% calc(100% - var(--vc)), calc(100% - var(--hc)) 100%,var(--hc) 100%,0 calc(100% - var(--vc)),0 var(--vc));
+//         margin-bottom: calc(var(--mv) - var(--vc));
+//         perspective: var(--s);
+//         transition: .2s all ease-in-out;
+//         > p {
+//             align-self: flex-start;
+//             margin: 0;
+//         }
+//         > [astro-icon] {
+//             transition: .2s all ease-in-out;
+//             filter: drop-shadow(0 0 5px #000d);
+//             width: auto;
+//         }
+//         &:is(:hover, :focus) {
+//             filter: saturate(1.75) brightness(1.2);
+//             --z: 20px;
+//             > [astro-icon] {
+//                 filter: drop-shadow(-6px -6px 5px #000a);
+//                 transform: translate3d(0, 10px, var(--z)) rotate3d(0, 0, 1, 20deg);
+//             }
+//         }
+//         &:nth-child(2n) {
+//             &:is(:hover, :focus) {
+//                 > [astro-icon] {
+//                     transform: translate3d(0, 10px, var(--z)) rotate3d(0, 0, -1, 20deg);
+//                 }
+//             }
+//         }
+//     }
+//     &::before {
+//         content: "";
+//         width: calc(var(--s)/2 + var(--mh));
+//         float: left;
+//         height: 135%;
+//         shape-outside: repeating-linear-gradient( 
+//                         transparent 0 calc(var(--f) - 2px),      
+//                         #fff        0 var(--f));
+//     }
+// }
+
+$per-col: 5;
+$max-generated-row: 20;
+
+@mixin grid-item($per-col) {
+    @for $i from 1 through $per-col {
+        &:nth-of-type(#{$per-col}n + #{$i}) {
+            grid-column: #{$i + $i - 1} / span 3;
+            @if $i % 2 == 0 {
+                grid-row: calc(var(--counter) + var(--counter) - 1) / span 2;
             }
         }
-        &:nth-child(2n) {
-            &:is(:hover, :focus) {
+    }
+
+    @for $i from 1 through $max-generated-row {
+        &:nth-of-type(n + #{$i * $per-col + 1}) {
+            --counter: #{$i + 1};
+        }
+    }
+}
+
+[hexa-grid] {
+
+    --neon-color: rgb(var(--neon-rgb));
+
+    --neon: drop-shadow(0 0 1px var(--neon-color)) drop-shadow(0 0 1px var(--neon-color)) drop-shadow(2px 4px 12px rgba(var(--neon-rgb), .5)) drop-shadow(2px 4px 6px #000);
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 25px;
+
+    > ul {
+        width: min(100%, 80em);
+
+        --per-col: $per-col;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(var(--per-col), 1fr 2fr) 1fr;
+        gap: 2rem 4rem;
+        > li {
+            position: relative;
+            grid-column: 1 / span 3;
+            grid-row: calc(var(--counter) + var(--counter)) / span 2;
+            filter: drop-shadow(2px 4px 6px #000);
+            // tweak the ratio to make a perfect hexagon
+            aspect-ratio: 1 / .9;
+            // approximate hexagon hitbox with border radius
+            border-radius: 25% / 50%;
+
+            transition: all .5s ease-in-out;
+
+            @supports not(selector(:has(a:hover))) {
+                &:hover {
+                    filter: var(--neon);
+                    transform: scale(1.05);
+                }
+            }
+
+            &:has(> a:is(:hover, :focus, :focus-visible)) {
+                filter: var(--neon);
+                transform: scale(1.05);
+            }
+
+            &:nth-child(3n+1) {
+                --gradient-rotation: 135deg;
+                --icon-rotate: 10deg;
+            }
+            
+            &:nth-child(3n+2) {
+                --gradient-rotation: 85deg;
+                --icon-rotate: -10deg;
+            }
+            
+            &:nth-child(3n+3) {
+                --gradient-rotation: 25deg;
+                --icon-rotate: 10deg;
+            }
+            
+
+            > a {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                font-size: 1.5rem;
+                // clip a hexagon shape;
+                clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+
+                text-decoration: none;
+                color: #ddd;
+                display: inline-grid;
+                place-items: center;
+
+                // background: radial-gradient(circle, hsl(186, 50%, 50%) 0%, hsl(186, 0%, 20%) 46%, hsl(186, 0%, 20%) 100%);
+                background: linear-gradient(var(--gradient-rotation), hsl(278, 0%, 13%) 0%,hsl(185, 0%, 20%) 100%);
+                transition: .5s all ease-in-out;
+
+                perspective: 200px;
+                > p {
+                    align-self: flex-start;
+                    margin: 0;
+                }
                 > [astro-icon] {
-                    transform: translate3d(0, 10px, var(--z)) rotate3d(0, 0, -1, 20deg);
+                    transition: .2s all ease-in-out;
+                    filter: drop-shadow(0 0 5px #000d);
+                    width: 40%;
+                    height: auto;
+                }
+                &:is(:hover, :focus, :focus-visible) {
+                    // filter: saturate(var(--icon-bright, 1.1)) brightness(var(--icon-bright, 1.1));
+                    filter: var(--icon-saturate, saturate(1.4)) brightness(var(--icon-bright, 1.1));
+                    background: linear-gradient(var(--gradient-rotation), var(--gradient-from, hsl(278, 35%, 13%)) 0%, var(--gradient-to, hsl(185, 50%, 20%)) 100%);
+                    outline: none;
+                    > [astro-icon] {
+                        filter: drop-shadow(-6px -6px 5px #111a);
+                        transform: translate3d(0, var(--icon-y, -5px), var(--icon-z, 10px)) rotate3d(0, 0, 1, var(--icon-rotate));
+                    }
                 }
             }
         }
-    }
-    &::before {
-        content: "";
-        width: calc(var(--s)/2 + var(--mh));
-        float: left;
-        height: 135%;
-        shape-outside: repeating-linear-gradient( 
-                        transparent 0 calc(var(--f) - 2px),      
-                        #fff        0 var(--f));
+
+        
+        @media screen and (min-width: 1440px) {
+            --per-col: 5;
+            --counter: 1;
+            > li {
+                @include grid-item(5);
+            }
+        }
+
+        @media screen and (min-width: 1120px) and (max-width: 1439px) {
+            --per-col: 4;
+            --counter: 1;
+            > li {
+                @include grid-item(4);
+            }
+        }
+
+        @media screen and (min-width: 840px) and (max-width: 1119px) {
+            --per-col: 3;
+            --counter: 1;
+            > li {
+                @include grid-item(3);
+            }
+        }
+
+        @media screen and (min-width: 480px) and (max-width: 839px) {
+            --per-col: 2;
+            --counter: 1;
+            > li {
+                @include grid-item(2);
+            }
+        }
+
+        @media screen and (max-width: 479px) {
+            --per-col: 1;
+            --counter: 1;
+        }
+
     }
 }
+
 </style>
 
 <div hexa-grid>
-    <div hexa-container>
+    <ul>
         { stacks.map((s:any) => (
-        <a target="_blank" href={s.link}>
-            { s.icon != undefined ?
-                <Icon name={s.icon}/>
-                <p>{s.name}</p> :
-                <img src={s.img} alt={s.alt} width="32" height="32" astro-icon/>
-                <p>{s.name}</p>
-            }
-        </a>
+        <li>
+            <a target="_blank" href={s.link}>
+                { s.icon != undefined ?
+                    <Icon name={s.icon}/>
+                    <p>{s.name}</p> :
+                    <img src={s.img} alt={s.alt} width="32" height="32" astro-icon/>
+                    <p>{s.name}</p>
+                }
+            </a>
+        </li>
         ))}
-    </div>
+    </ul>
 </div>

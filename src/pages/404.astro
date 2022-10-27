@@ -1,19 +1,30 @@
 ---
-import MainHead from '../components/MainHead.astro';
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav.astro';
+import MainHead from "../components/MainHead.astro";
+import SideMenuBody from "../layouts/SideMenuBody.astro";
+
+
 ---
+
+<style lang="scss" is:global>
+main {
+	display: grid;
+	place-items: center;
+}
+section {
+	display: grid;
+	gap: 25px;
+	text-align: center;
+}
+</style>
 
 <html lang="en">
 	<head>
-		<MainHead title="Not Found" />
+		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
 	</head>
-	<body>
-		<nav />
-		<div class="wrapper mt4 mb4">
-			<h1>Page Not Found</h1>
-			<p>Not found</p>
-		</div>
-		<footer />
-	</body>
+	<SideMenuBody>
+		<section>
+			<h1>404</h1>
+			<p>Page not found</p>
+		</section>
+    </SideMenuBody>
 </html>

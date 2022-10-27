@@ -23,7 +23,7 @@ const { projects } = Astro.props as Props;
 	--sh: min(14rem, 60vw);
 	perspective: var(--sw);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     padding: 25px;
@@ -34,7 +34,6 @@ const { projects } = Astro.props as Props;
         display: grid;
         place-items: stretch center;
         height: 100%;
-        flex: 1 1 auto;
 
         &:is(:hover, :focus) > div {
             transform: rotate3d(-1, 1, 0, 20deg);
@@ -53,7 +52,8 @@ const { projects } = Astro.props as Props;
                 inset: 0;
             }
             &, &:before, &:after {
-                background: #3338;
+                background: linear-gradient(135deg, rgba(33, 33, 33, 0.5) 0%,rgba(51, 51, 51, 0.5) 100%);
+                // background: #3338;
                 border-radius: 15px;
                 border: 1px solid #fff4;
                 box-shadow: 0 0 1px 2px #0ff;
