@@ -5,22 +5,21 @@
 
 <style lang="scss">
 header {
+    display: flex;
+    justify-content: center;
     h1 {
-        font-size: calc(2em + 2vmin);
+        font-size: calc(2em + 4vmin);
+        font-weight: 900;
         display: flex;
         flex-direction: column;
         text-align: center;
-        text-shadow:
-            0 0 5px #fff,
-            0 0 10px #0ff,
-            0 0 20px #0ff,
-            0 0 40px #0ff;
+        filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px cyan) drop-shadow(0 0 4px #33f8) drop-shadow(0 0 6px #33f8);
     }
 }
 </style>
 
 <header>
-    <h1>
+    <h1 test-h>
         <span>Benjamin Gilloury</span>
         <span>alias</span>
         <span>Sacramentix</span>

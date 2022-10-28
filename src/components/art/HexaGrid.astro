@@ -250,7 +250,7 @@ $max-generated-row: 20;
             }
         }
 
-        @media screen and (min-width: 480px) and (max-width: 839px) {
+        @media screen /*and (min-width: 480px)*/ and (max-width: 839px) {
             --per-col: 2;
             --counter: 1;
             > li {
@@ -258,9 +258,11 @@ $max-generated-row: 20;
             }
         }
 
-        @media screen and (max-width: 479px) {
-            --per-col: 1;
-            --counter: 1;
+        @media screen and (max-width: 500px) {
+            gap: 0.5rem 1rem;
+            > li > a {
+                font-size: 1rem;
+            }
         }
 
     }

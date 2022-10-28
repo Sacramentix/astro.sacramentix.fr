@@ -5,6 +5,7 @@ import MainHead from '../components/MainHead.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
 import DailyWikiAdventureSvg from "../assets/dailyWikiAdventure.svg";
+import SixDegreeOfWikiAdventurSvg from "../assets/sixDegreeOfWikiAdventure.svg";
 import AstroSvg from "../assets/astro.svg";
 
 //@ts-ignore
@@ -39,14 +40,14 @@ main {
 	padding: max(10vw, 25px);
 	gap: 25px;
 	> h2 {
-		font-size: calc(1.5em + 2vmin);
+		font-size: calc(1.5em + 3.5vmin);
 		flex: 3 0 100px;
 		text-align: center;
 		max-width: 100%;
 		display: flex;
 		flex-direction: column;
 	}
-	> ul {
+	> div {
 		flex: 7 0 400px;
 		padding: 0 10vw;
 		max-width: 80vw;
@@ -58,6 +59,7 @@ main {
 	place-items: center;
 	> h2 {
 		text-align: center;
+		font-size: calc(1.5em + 3vmin);
 	}
 }
 
@@ -67,6 +69,7 @@ main {
 	place-items: center;
 	> h2 {
 		text-align: center;
+		font-size: calc(1.5em + 3vmin);
 	}
 }
 
@@ -110,17 +113,19 @@ main {
 						<span>Full-stack</span>
 						<span>developer</span>
 					</h2>
-					<p>
-						I'm a perfectionnist web developer who is looking challenging quest to complete.
-						I love to build new idea with latest stack I've discover.
-						I make my project has accesible as possible for everyone without discrimination.
-
-					</p>
-					<ul>
-						<li>I'm always following lastest technologie and use them wisely to write clean code.</li>
-						<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
-						<li>I'm agile critical thinkers</li>
-					</ul>
+					<div>
+						<p>
+							I'm a perfectionnist web developer who is looking challenging quest to complete.
+							I love to build new idea with latest stack I've discover.
+							I make my project has accesible as possible for everyone without discrimination.
+	
+						</p>
+						<ul>
+							<li>I'm always following lastest technologie and use them wisely to write clean code.</li>
+							<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
+							<li>I'm agile critical thinkers</li>
+						</ul>
+					</div>
 				</section>
 				<section projects-section id="projects">
 					<h2>
@@ -135,10 +140,11 @@ main {
 							Daily Wiki Adventure is a solo daily game where you must go from a 
 							wikipedia start page to a target page as fast as you can with fewest link possible.
 							Share your Dail Wiki Adventure epic now!`},
-						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
-							Daily Wiki Adventure is a solo daily game where you must go from a 
-							wikipedia start page to a target page as fast as you can with fewest link possible.
-							Share your Dail Wiki Adventure epic now!`},
+						{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
+							Six Degrees of Wiki adventure is web app where you can request all shortests
+							paths between 2 wikipedia page. and visualize them with their description and thumbnail.
+							It's inspired by the sixdegreesofwikipedia.com but it's available in more language than
+							just english. `},
 						{link: "https://astro.build", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
 							I recently redesigned my website you see here with Astro.
 							Better than ever before!`},
