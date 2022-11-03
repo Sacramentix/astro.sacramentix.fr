@@ -132,85 +132,106 @@ import SideMenu from '../layouts/SideMenu.astro';
 
 <style is:global lang="scss">
 
-	main {
-		display: grid;
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr;
-		place-items: start center;
-		background: #000;
-		> * {
-			width: 100%;
-			height: 100%;
-			grid-column: 1 / 2;
-			grid-row: 1 / 2;
-		}
+body {
+	margin: 0;
+	background: #000;
+	color: #ddd;
+	font-family: 'Source Code Pro', monospace;
+}
+
+[astro-icon] {
+	&[teal] {--clr: #0bc3c3;}
+	&[green] {--clr: #19ab19;}
+	&[red] {--clr: #e04848;}
+	&[orange] {--clr: #fab32e;}
+	&[blue] {--clr: #378ae9;}
+	&[white] {--clr: #fff;}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+main {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	place-items: start center;
+	background: #000;
+	> * {
+		width: 100%;
+		height: 100%;
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
 	}
-	[intro-section] {
-		min-height: 500px;
+}
+[intro-section] {
+	min-height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: center;
+	// align-items: center;
+	padding: max(10vw, 25px);
+	gap: 25px;
+	> h2 {
+		font-size: calc(1.5em + 3.5vmin);
+		flex: 3 0 100px;
+		text-align: center;
+		max-width: 100%;
 		display: flex;
-		flex-wrap: wrap;
-		// justify-content: center;
-		// align-items: center;
-		padding: max(10vw, 25px);
-		gap: 25px;
-		> h2 {
-			font-size: calc(1.5em + 3.5vmin);
-			flex: 3 0 100px;
-			text-align: center;
-			max-width: 100%;
-			display: flex;
-			flex-direction: column;
-		}
-		> div {
-			flex: 7 0 400px;
-			padding: 0 10vw;
-			max-width: 80vw;
-		}
+		flex-direction: column;
 	}
-	
-	[projects-section] {
-		display: grid;
-		place-items: center;
-		> h2 {
-			text-align: center;
-			font-size: calc(1.5em + 3vmin);
-		}
+	> div {
+		flex: 7 0 400px;
+		padding: 0 10vw;
+		max-width: 80vw;
 	}
-	
-	[stacks-section] {
-		
-		display: grid;
-		place-items: center;
-		> h2 {
-			text-align: center;
-			font-size: calc(1.5em + 3vmin);
-		}
+}
+
+[projects-section] {
+	display: grid;
+	place-items: center;
+	> h2 {
+		text-align: center;
+		font-size: calc(1.5em + 3vmin);
 	}
+}
+
+[stacks-section] {
 	
-	[loved-stacks] {
-		--neon-rgb: 0, 255, 255;
+	display: grid;
+	place-items: center;
+	> h2 {
+		text-align: center;
+		font-size: calc(1.5em + 3vmin);
 	}
-	
-	[known-stacks] {
-		--neon-rgb: 73, 242, 39;
-		// --gradient-from: hsl(130, 10%, 20%);
-		// --gradient-to: hsl(130, 50%, 25%);
-	}
-	
-	[hated-stacks] {
-		--icon-y: 5px;
-		--icon-z: -20px;
-		--icon-saturate: saturate(.2);
-		--icon-bright: .7;
-	
-		--gradient-from: hsl(39, 0%, 10%);
-		--gradient-to: hsl(0, 20%, 20%);
-	
-		--neon-rgb: 192, 4, 4;
-	}
-	
-	[stacks-to-learn] {
-		--neon-rgb: 73, 73, 255;
-	}
-	
-	</style>
+}
+
+[loved-stacks] {
+	--neon-rgb: 0, 255, 255;
+}
+
+[known-stacks] {
+	--neon-rgb: 73, 242, 39;
+	// --gradient-from: hsl(130, 10%, 20%);
+	// --gradient-to: hsl(130, 50%, 25%);
+}
+
+[hated-stacks] {
+	--icon-y: 5px;
+	--icon-z: -20px;
+	--icon-saturate: saturate(.2);
+	--icon-bright: .7;
+
+	--gradient-from: hsl(39, 0%, 10%);
+	--gradient-to: hsl(0, 20%, 20%);
+
+	--neon-rgb: 192, 4, 4;
+}
+
+[stacks-to-learn] {
+	--neon-rgb: 73, 73, 255;
+}
+
+</style>
