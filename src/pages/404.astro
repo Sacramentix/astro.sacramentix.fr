@@ -1,9 +1,14 @@
 ---
-import MainHead from "../components/MainHead.astro";
-import SideMenuBody from "../layouts/SideMenuBody.astro";
-
+import SideMenu from "../layouts/SideMenu.astro";
 
 ---
+
+<SideMenu title="Sacramentix - 404 not found" description="This url doesn't lead to anything">
+	<section>
+		<h1>404</h1>
+		<p>Page not found</p>
+	</section>
+</SideMenu>
 
 <style lang="scss" is:global>
 main {
@@ -16,15 +21,3 @@ section {
 	text-align: center;
 }
 </style>
-
-<html lang="en">
-	<head>
-		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
-	</head>
-	<SideMenuBody>
-		<section>
-			<h1>404</h1>
-			<p>Page not found</p>
-		</section>
-    </SideMenuBody>
-</html>

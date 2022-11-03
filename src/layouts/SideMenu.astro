@@ -37,6 +37,12 @@ html, body {
 	overscroll-behavior: none;
 }
 body {
+	margin: 0;
+	background: #000;
+	color: #ddd;
+	font-family: 'Source Code Pro', monospace;
+	font-display: swap;
+
 	overflow-x: scroll;
 	width: 100vw;
 	display: flex;
@@ -85,5 +91,18 @@ main {
 		color: #555;
 	}
 }
+[astro-icon] {
+	&[teal] {--clr: #0bc3c3;}
+	&[green] {--clr: #19ab19;}
+	&[red] {--clr: #e04848;}
+	&[orange] {--clr: #fab32e;}
+	&[blue] {--clr: #378ae9;}
+	&[white] {--clr: #fff;}
+}
+
+* {
+	box-sizing: border-box;
+}
+
 </style>
 	

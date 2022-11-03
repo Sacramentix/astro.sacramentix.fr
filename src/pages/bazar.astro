@@ -1,7 +1,6 @@
 ---
 import ProjectCards from "../components/art/ProjectCards.astro";
-import MainHead from "../components/MainHead.astro";
-import SideMenuBody from "../layouts/SideMenuBody.astro";
+import SideMenu from "../layouts/SideMenu.astro";
 import FrechiUrl from "../assets/frechi.svg";
 
 ---
@@ -12,41 +11,36 @@ h1 {
 }
 </style>
 
-<html lang="en">
-	<head>
-		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
-	</head>
-	<SideMenuBody>
-        <h1>
-            Bazar
-        </h1>
-        <ProjectCards projects={[
-            {link: "https://frechi.netlify.app", img: FrechiUrl ,alt: "Frechi", width:1281, height:1280, description: `
-                I've made a math game based on a french TV show "Des chiffres et des lettres".
-                `},
-            {link: "#", img: "" ,alt: "Ludum dare", width:1281, height:1280, description: `
-                I've partipated at ludum dare gamejam. I've a game based on the theme "start with nothing".
-                `},
-            {link: "#", img: "" ,alt: "Naostre", width:1281, height:1280, description: `
-                I've made Naostre with friend. Originally made for ClearChannel, it's an app to make
-                a email based campaign with your employe to aknowledge them on the environemental problematic
-                with integration trough iframe of the open source web app
-                "Nos Gestes Climat."
-                `},
-            {link: "#", img: "" ,alt: "", width:1281, height:1280, description: `
-                I've made a feature for the open source web app "Nos Gestes Climat"
-                to share result to parent website of a iframe.
-                `},
-            {link: "#", img: "" ,alt: "Old portfolio", width:1281, height:1280, description: `
-                My old portfolio made with quasar.`},
-            {link: "#", img: "" ,alt: "Primal Zerg logo", width:1281, height:1280, description: `
-                I've plan to make a Terraria mod based on Starcraft Zerg. With a zerg invasion 
-                That become stronger and stronger as you progress.
+<SideMenu title="Sacramentix bazar" description="Sacramentix project gallery">
+    <h1>
+        Bazar
+    </h1>
+    <ProjectCards projects={[
+        {link: "https://frechi.netlify.app", img: FrechiUrl ,alt: "Frechi", width:1281, height:1280, description: `
+            I've made a math game based on a french TV show "Des chiffres et des lettres".
             `},
-            {link: "https://six-degrees-of-wiki-adventure.netlify.app", img: "" ,alt: "Six degrees of wikiadventure", width:1281, height:1280, description: `
-                Coming Soon, an API and a website to find all shortest path between 2 wikipedia
-                page using Arango DB.
+        {link: "#", img: "" ,alt: "Ludum dare", width:1281, height:1280, description: `
+            I've partipated at ludum dare gamejam. I've a game based on the theme "start with nothing".
             `},
-        ]}/>
-    </SideMenuBody>
-</html>
+        {link: "#", img: "" ,alt: "Naostre", width:1281, height:1280, description: `
+            I've made Naostre with friend. Originally made for ClearChannel, it's an app to make
+            a email based campaign with your employe to aknowledge them on the environemental problematic
+            with integration trough iframe of the open source web app
+            "Nos Gestes Climat."
+            `},
+        {link: "#", img: "" ,alt: "", width:1281, height:1280, description: `
+            I've made a feature for the open source web app "Nos Gestes Climat"
+            to share result to parent website of a iframe.
+            `},
+        {link: "#", img: "" ,alt: "Old portfolio", width:1281, height:1280, description: `
+            My old portfolio made with quasar.`},
+        {link: "#", img: "" ,alt: "Primal Zerg logo", width:1281, height:1280, description: `
+            I've plan to make a Terraria mod based on Starcraft Zerg. With a zerg invasion 
+            That become stronger and stronger as you progress.
+        `},
+        {link: "https://six-degrees-of-wiki-adventure.netlify.app", img: "" ,alt: "Six degrees of wikiadventure", width:1281, height:1280, description: `
+            Coming Soon, an API and a website to find all shortest path between 2 wikipedia
+            page using Arango DB.
+        `},
+    ]}/>
+</SideMenu>
