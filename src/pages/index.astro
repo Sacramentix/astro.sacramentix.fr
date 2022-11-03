@@ -1,223 +1,216 @@
 ---
 import { Icon } from 'astro-icon';
 import Header from '../components/Header.astro';
-import MainHead from '../components/MainHead.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
 import DailyWikiAdventureSvg from "../assets/dailyWikiAdventure.svg";
 import SixDegreeOfWikiAdventurSvg from "../assets/sixDegreeOfWikiAdventure.svg";
 import AstroSvg from "../assets/astro.svg";
 
-//@ts-ignore
 import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
 import ProjectCards from '../components/art/ProjectCards.astro';
-import SideMenuBody from '../layouts/SideMenuBody.astro';
+import SideMenu from '../layouts/SideMenu.astro';
 
 ---
+<SideMenu>
+	<Header/>
+		<Field>
+			<section intro-section title="introduction">
+				<h2>
+					<span>Full-stack</span>
+					<span>developer</span>
+				</h2>
+				<div>
+					<p>
+						I'm a perfectionnist web developer who is looking challenging quest to complete.
+						I love to build new idea with latest stack I've discover.
+						I make my project has accesible as possible for everyone without discrimination.
+
+					</p>
+					<ul>
+						<li>I'm always following lastest technologie and use them wisely to write clean code.</li>
+						<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
+						<li>I'm agile critical thinkers</li>
+					</ul>
+				</div>
+			</section>
+			<section projects-section id="projects">
+				<h2>
+					Projects
+				</h2>
+				<ProjectCards projects={[
+					{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
+						Wiki Adventure is a multiplayer game combining culture and speed. 
+						Players compete against each other on Wikipedia and have to scroll 
+						through the pages as quickly as possible to win.`},
+					{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
+						Daily Wiki Adventure is a solo daily game where you must go from a 
+						wikipedia start page to a target page as fast as you can with fewest link possible.
+						Share your Dail Wiki Adventure epic now!`},
+					{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
+						Six Degrees of Wiki adventure is web app where you can request all shortests
+						paths between 2 wikipedia page. and visualize them with their description and thumbnail.
+						It's inspired by the sixdegreesofwikipedia.com but it's available in more language than
+						just english. `},
+					{link: "https://astro.build", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
+						I recently redesigned my website you see here with Astro.
+						Better than ever before!`},
+				]}/>
+			</section>
+			<section stacks-section loved-stacks id="stacks">
+				<h2>
+					Stacks I love
+				</h2>
+				<HexaGrid stacks={[
+					{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
+					{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
+					{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
+					{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
+					{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
+					{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
+					{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
+					{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
+					{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
+					{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
+					{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
+					{link:"https://github.com", icon:"mdi:github", name:"Github"},
+					{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
+					{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
+					{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
+					{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
+					{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
+					{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
+					{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
+					{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
+				]}/>
+			</section>
+			<section stacks-section known-stacks>
+				<h2>Stacks I know</h2>
+				<HexaGrid stacks={[
+					{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+					{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
+					{link:"https://www.python.org", icon:"logos:python", name:"Python"},
+					{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
+					{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
+					{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
+					{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
+					{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
+					{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
+				]}/>
+			</section>
+			<section stacks-section hated-stacks>
+				<h2>Stacks I hate</h2>
+				<HexaGrid stacks={[
+					{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
+					{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+					{link:"https://www.java.com", icon:"logos:java", name:"Java"},
+					{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
+					{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
+					{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
+				]}/>
+			</section>
+			<section stacks-section stacks-to-learn>
+				<h2>Stacks I want to learn</h2>
+				<HexaGrid stacks={[
+					{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
+					{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+					{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
+					{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
+					// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
+					{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
+					{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
+					{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
+					{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
+					{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
+					{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
+				]}/>
+			</section>
+		</Field>
+</SideMenu>
+
 
 <style is:global lang="scss">
 
-main {
-	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr;
-	place-items: start center;
-	background: #000;
-	> * {
-		width: 100%;
-		height: 100%;
-		grid-column: 1 / 2;
-		grid-row: 1 / 2;
+	main {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr;
+		place-items: start center;
+		background: #000;
+		> * {
+			width: 100%;
+			height: 100%;
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+		}
 	}
-}
-[intro-section] {
-	min-height: 500px;
-	display: flex;
-	flex-wrap: wrap;
-	// justify-content: center;
-	// align-items: center;
-	padding: max(10vw, 25px);
-	gap: 25px;
-	> h2 {
-		font-size: calc(1.5em + 3.5vmin);
-		flex: 3 0 100px;
-		text-align: center;
-		max-width: 100%;
+	[intro-section] {
+		min-height: 500px;
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
+		// justify-content: center;
+		// align-items: center;
+		padding: max(10vw, 25px);
+		gap: 25px;
+		> h2 {
+			font-size: calc(1.5em + 3.5vmin);
+			flex: 3 0 100px;
+			text-align: center;
+			max-width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		> div {
+			flex: 7 0 400px;
+			padding: 0 10vw;
+			max-width: 80vw;
+		}
 	}
-	> div {
-		flex: 7 0 400px;
-		padding: 0 10vw;
-		max-width: 80vw;
-	}
-}
-
-[projects-section] {
-	display: grid;
-	place-items: center;
-	> h2 {
-		text-align: center;
-		font-size: calc(1.5em + 3vmin);
-	}
-}
-
-[stacks-section] {
 	
-	display: grid;
-	place-items: center;
-	> h2 {
-		text-align: center;
-		font-size: calc(1.5em + 3vmin);
+	[projects-section] {
+		display: grid;
+		place-items: center;
+		> h2 {
+			text-align: center;
+			font-size: calc(1.5em + 3vmin);
+		}
 	}
-}
-
-[loved-stacks] {
-	--neon-rgb: 0, 255, 255;
-}
-
-[known-stacks] {
-	--neon-rgb: 73, 242, 39;
-	// --gradient-from: hsl(130, 10%, 20%);
-	// --gradient-to: hsl(130, 50%, 25%);
-}
-
-[hated-stacks] {
-	--icon-y: 5px;
-	--icon-z: -20px;
-	--icon-saturate: saturate(.2);
-	--icon-bright: .7;
-
-	--gradient-from: hsl(39, 0%, 10%);
-	--gradient-to: hsl(0, 20%, 20%);
-
-	--neon-rgb: 192, 4, 4;
-}
-
-[stacks-to-learn] {
-	--neon-rgb: 73, 73, 255;
-}
-
-</style>
-
-<html lang="en">
-	<head>
-		<MainHead title="Sacramentix" description="Sacramentix's portfolio" />
-	</head>
-	<SideMenuBody>
-		<Header/>
-			<Field>
-				<section intro-section title="introduction">
-					<h2>
-						<span>Full-stack</span>
-						<span>developer</span>
-					</h2>
-					<div>
-						<p>
-							I'm a perfectionnist web developer who is looking challenging quest to complete.
-							I love to build new idea with latest stack I've discover.
-							I make my project has accesible as possible for everyone without discrimination.
 	
-						</p>
-						<ul>
-							<li>I'm always following lastest technologie and use them wisely to write clean code.</li>
-							<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
-							<li>I'm agile critical thinkers</li>
-						</ul>
-					</div>
-				</section>
-				<section projects-section id="projects">
-					<h2>
-						Projects
-					</h2>
-					<ProjectCards projects={[
-						{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
-							Wiki Adventure is a multiplayer game combining culture and speed. 
-							Players compete against each other on Wikipedia and have to scroll 
-							through the pages as quickly as possible to win.`},
-						{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
-							Daily Wiki Adventure is a solo daily game where you must go from a 
-							wikipedia start page to a target page as fast as you can with fewest link possible.
-							Share your Dail Wiki Adventure epic now!`},
-						{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
-							Six Degrees of Wiki adventure is web app where you can request all shortests
-							paths between 2 wikipedia page. and visualize them with their description and thumbnail.
-							It's inspired by the sixdegreesofwikipedia.com but it's available in more language than
-							just english. `},
-						{link: "https://astro.build", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
-							I recently redesigned my website you see here with Astro.
-							Better than ever before!`},
-					]}/>
-				</section>
-				<section stacks-section loved-stacks id="stacks">
-					<h2>
-						Stacks I love
-					</h2>
-					<HexaGrid stacks={[
-						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
-						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
-						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
-						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
-						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
-						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
-						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
-						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
-						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
-						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
-						{link:"https://github.com", icon:"mdi:github", name:"Github"},
-						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
-						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
-						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
-						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
-						{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
-						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
-						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
-						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
-					]}/>
-				</section>
-				<section stacks-section known-stacks>
-					<h2>Stacks I know</h2>
-					<HexaGrid stacks={[
-						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
-						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
-						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
-						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
-						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
-						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
-						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
-						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
-						{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
-					]}/>
-				</section>
-				<section stacks-section hated-stacks>
-					<h2>Stacks I hate</h2>
-					<HexaGrid stacks={[
-						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
-						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
-						{link:"https://www.java.com", icon:"logos:java", name:"Java"},
-						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
-						{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
-						{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
-					]}/>
-				</section>
-				<section stacks-section stacks-to-learn>
-					<h2>Stacks I want to learn</h2>
-					<HexaGrid stacks={[
-						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
-						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
-						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
-						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
-						// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
-						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
-						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
-						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
-						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
-						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
-						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
-					]}/>
-				</section>
-			</Field>
-	</SideMenuBody>
-</html>
+	[stacks-section] {
+		
+		display: grid;
+		place-items: center;
+		> h2 {
+			text-align: center;
+			font-size: calc(1.5em + 3vmin);
+		}
+	}
+	
+	[loved-stacks] {
+		--neon-rgb: 0, 255, 255;
+	}
+	
+	[known-stacks] {
+		--neon-rgb: 73, 242, 39;
+		// --gradient-from: hsl(130, 10%, 20%);
+		// --gradient-to: hsl(130, 50%, 25%);
+	}
+	
+	[hated-stacks] {
+		--icon-y: 5px;
+		--icon-z: -20px;
+		--icon-saturate: saturate(.2);
+		--icon-bright: .7;
+	
+		--gradient-from: hsl(39, 0%, 10%);
+		--gradient-to: hsl(0, 20%, 20%);
+	
+		--neon-rgb: 192, 4, 4;
+	}
+	
+	[stacks-to-learn] {
+		--neon-rgb: 73, 73, 255;
+	}
+	
+	</style>
