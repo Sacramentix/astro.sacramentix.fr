@@ -59,72 +59,78 @@ import SideMenu from '../layouts/SideMenu.astro';
 				]}/>
 			</section>
 			<section stacks-section loved-stacks id="stacks">
-				<h2>
-					Stacks I love
-				</h2>
-				<HexaGrid stacks={[
-					{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
-					{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
-					{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
-					{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
-					{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
-					{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
-					{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
-					{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
-					{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-					{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
-					{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
-					{link:"https://github.com", icon:"mdi:github", name:"Github"},
-					{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
-					{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
-					{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
-					{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
-					{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
-					{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
-					{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
-					{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
-				]}/>
+				<details open>
+					<summary><h2>Stacks I love</h2></summary>
+					<HexaGrid stacks={[
+						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
+						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
+						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
+						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
+						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
+						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
+						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
+						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
+						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
+						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
+						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
+						{link:"https://github.com", icon:"mdi:github", name:"Github"},
+						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
+						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
+						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
+						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
+						{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
+						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
+						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
+						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
+						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
+					]}/>
+				</details>
 			</section>
 			<section stacks-section known-stacks>
-				<h2>Stacks I know</h2>
-				<HexaGrid stacks={[
-					{link:"https://reactjs.org", icon:"logos:react", name:"React"},
-					{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
-					{link:"https://www.python.org", icon:"logos:python", name:"Python"},
-					{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
-					{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
-					{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
-					{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
-					{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
-					{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
-				]}/>
+				<details>
+					<summary><h2>Stacks I know</h2></summary>
+					<HexaGrid stacks={[
+						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
+						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
+						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
+						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
+						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
+						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
+						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
+						{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
+					]}/>
+				</details>
 			</section>
 			<section stacks-section hated-stacks>
-				<h2>Stacks I hate</h2>
-				<HexaGrid stacks={[
-					{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
-					{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
-					{link:"https://www.java.com", icon:"logos:java", name:"Java"},
-					{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
-					{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
-					{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
-				]}/>
+				<details>
+					<summary><h2>Stacks I hate</h2></summary>
+					<HexaGrid stacks={[
+						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
+						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+						{link:"https://www.java.com", icon:"logos:java", name:"Java"},
+						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
+						{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
+						{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
+					]}/>
+				</details>
 			</section>
 			<section stacks-section stacks-to-learn>
-				<h2>Stacks I want to learn</h2>
-				<HexaGrid stacks={[
-					{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
-					{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
-					{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
-					{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
-					// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
-					{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
-					{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
-					{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
-					{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
-					{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
-					{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
-				]}/>
+				<details>
+					<summary><h2>Stacks I want to learn</h2></summary>
+					<HexaGrid stacks={[
+						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
+						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
+						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
+						// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
+						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
+						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
+						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
+						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
+						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
+					]}/>
+				</details>
 			</section>
 		</Field>
 </SideMenu>
@@ -199,12 +205,20 @@ main {
 }
 
 [stacks-section] {
-	
-	display: grid;
-	place-items: center;
-	> h2 {
-		text-align: center;
+	details {
+		display: grid;
+		place-items: center;
+		width: 100%;
+	}
+
+	summary {
 		font-size: calc(1.5em + 3vmin);
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 1em;
+		display: inline-block;
 	}
 }
 
