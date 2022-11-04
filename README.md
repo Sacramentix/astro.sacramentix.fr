@@ -16,7 +16,7 @@ This is the repo of my personnal website, where you can see my developer diaries
 ## 🚀 Tech stack
 
 <p align="center">
-  <a href="https://astro.build" title="Vite"><img width=32 height=32 src="https://vitejs.dev/logo.svg" alt="Astro logo"></a>
+  <a href="https://astro.build" title="Astro"><img width=32 height=32 src="https://api.iconify.design/logos:astro.svg" alt="Astro logo"></a>
 	<a href="https://www.typescriptlang.org" title="Typescript"><img width=32 height=32 src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="Typescript logo"></a>
 </p>
 
