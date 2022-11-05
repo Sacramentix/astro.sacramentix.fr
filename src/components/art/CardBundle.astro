@@ -1,0 +1,189 @@
+---
+import { Icon } from 'astro-icon';
+
+---
+
+<style lang="scss" is:global>
+[card-bundle] {
+    position: relative;
+
+    width: min(100ch, 100%);
+    aspect-ratio: 1/.8;
+    display: grid;
+    place-items: center;
+    font-size: min(1rem, calc(.5rem + 1vmin));
+
+    // filter: drop-shadow(0 50px 5px rgba(0, 255, 255, 0.323));
+    > [big-card] {
+        position: absolute;
+        border-radius: 10px;
+        width: 33%;
+        aspect-ratio: 5/7;
+        transition: all ease-in-out .3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid cyan;
+        box-shadow: 0 0 2px cyan;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        // align-items: stretch;
+        // filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.649));
+        box-shadow: 0 0 10px rgba(0, 255, 255, .65);
+        h3 {
+            margin: 0;
+            padding: 5% 0;
+            background-color: #21D4FD;
+            background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+            text-align: center;
+        }  
+        :is(img, svg) {
+            margin: 0 auto;
+            padding: 5%;
+            max-width: 60%;
+            max-height: 60%;
+        }
+        > div {
+            flex: 1;
+            justify-self: stretch;
+            align-self: stretch;
+            margin: 0;
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            > h4 {
+                margin: 2% 0;
+                max-width: 70%;
+                line-height: 1em;
+                height: 2em;
+            }
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin: 3% 0;
+                padding: 0;
+                flex: 1;
+                max-width: 55%;
+            }
+            li {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        &:nth-of-type(4) {
+            background: linear-gradient(90deg, rgba(31, 162, 255, .3), rgba(18, 215, 250, .3), rgba(166, 255, 203, .3));
+            transform: rotate(-5deg);
+            > :is(div, h3) {
+                background: linear-gradient(90deg, #6cb8fd, #7cc4fc, #8ecffb, #a2d9fb, #b7e3fa, #b9e7fb, #bceafc, #bfeefd, #adecfe, #99ebfe, #82eafd, #67e8fb);
+                color: #004040;
+            }
+        }
+        &:nth-of-type(5) {
+            background: linear-gradient(90deg, rgba(31, 162, 255, .3), rgba(18, 215, 250, .3), rgba(166, 255, 203, .3));
+            > :is(div, h3) {
+                background: linear-gradient(90deg, #1fa2ff, #12d8fa, #a6ffcb);
+                color: #004040;
+            }
+        }
+        &:nth-of-type(6) {
+            background: linear-gradient(90deg, hsla(175, 87%, 33%, .3), hsla(175, 61%, 15%, .3), hsla(175, 87%, 27%, .3));
+            transform: rotate(5deg);
+            > :is(div, h3) {
+                background: linear-gradient(90deg, hsl(175, 87%, 33%), hsl(175, 61%, 15%), hsl(175, 87%, 27%));
+                color: #fffe;
+            }
+            > div ul {
+                max-width: 75%;
+            }
+        }
+    }
+    > [small-card] {
+        position: absolute;
+        width: 10%;
+        aspect-ratio: 1/1;
+        transition: all ease-in-out .4s;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+        }
+    }
+    &:is(:hover, :focus, :focus-visible, :active) {
+        > [big-card] {
+            &:nth-of-type(4) {
+                transform: translateX(-75%) rotate(-20deg);
+            }
+            &:nth-of-type(5) {
+                transform: translateY(-10%);
+            }
+            &:nth-of-type(6) {
+                transform: translateX(75%) rotate(20deg);
+            }
+        }
+        > [small-card] {
+            &:nth-of-type(1) {
+                transform: translate(-420%, 100%) rotate(20deg);
+                --clr: rgb(2, 255, 2);
+            }
+            &:nth-of-type(2) {
+                transform: translate(-50%, -350%) rotate(-35deg);
+                --clr: blue;
+            }
+            &:nth-of-type(3) {
+                transform: translate(420%, 100%) rotate(-10deg);
+                --clr: red;
+            }
+            filter: drop-shadow(0 0 2px var(--clr)) drop-shadow(0 0 3px var(--clr));
+        }
+    }
+}
+</style>
+
+<div card-bundle tabindex="0">
+    <div small-card>
+        <img loading="lazy" pixel-perfect src="/icons/terraria.png" alt="Terraria icon">
+    </div> 
+    <div small-card>
+        <img loading="lazy"  src="/icons/LoL.png" alt="League of Legend icon">
+    </div>
+    <div small-card>
+        <img loading="lazy" src="/icons/darkSouls3.png" alt="Dark Souls 3 icon">
+    </div>
+    <div big-card>
+        <h3>Ski</h3>
+        <Icon teal name="bi:snow2" />
+        <div>
+            <h4>Snow biome affinity+</h4>
+            <ul>
+                <li>Speed <span>100</span></li>
+                <li>Skill <span>60</span></li>
+                <li>Tricks <span>20</span></li>
+            </ul>
+        </div>
+    </div> 
+    <div big-card>
+        <h3>Badminton</h3>
+        <Icon name="mdi:badminton" />
+        <div>
+            <h4>Convivial+</h4>
+            <ul>
+                <li>Fun <span>100</span></li>
+                <li>Skill <span>50</span></li>
+                <li>Coop <span>40</span></li>
+            </ul>
+        </div>
+    </div>
+    <div big-card>
+        <h3>Hobby</h3>
+        <Icon teal name="mdi:heart" />
+        <div>
+            <h4>Discover my hobby</h4>
+            <ul>
+                <li>Thrill <span>80</span></li>
+                <li>Aventure <span>70</span></li>
+                <li>Strength <span>20</span></li>
+            </ul>
+        </div>
+    </div>
+</div>

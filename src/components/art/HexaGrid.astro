@@ -173,17 +173,22 @@ $max-generated-row: 20;
         }
 
         @media screen /*and (min-width: 480px)*/ and (max-width: 839px) {
-            --per-col: 2;
+            --per-col: 3;
             --counter: 1;
+            gap: 0.5rem 1rem;
             > li {
-                @include grid-item(2);
+                @include grid-item(3);
             }
         }
 
-        @media screen and (max-width: 500px) {
-            gap: 0.5rem 1rem;
+        @media screen and (max-width: 600px) {
             > li > a {
                 font-size: 1rem;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            > li > a {
+                font-size: .8rem;
             }
         }
 

@@ -37,6 +37,9 @@ const { projects } = Astro.props as Props;
 
         &:is(:hover, :focus) > div {
             transform: rotate3d(-1, 1, 0, 20deg);
+            [z-pop] {
+                transform: translate3d(0, 0, calc(var(--sw) / 8));
+            }
         }
         > div {
             transform-style: preserve-3d;
@@ -72,9 +75,10 @@ const { projects } = Astro.props as Props;
             padding: 3rem;
             min-height: var(--sh);
             transform-style: preserve-3d;
-            transform: translate3d(0, 0, calc(var(--sw) / 8));
+            // transform: translate3d(0, 0, calc(var(--sw) / 8));
             width: var(--sw);
             min-height: var(--sh);
+            transition: transform ease-in-out .4s;
 
         }
 

@@ -11,6 +11,7 @@ import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
 import ProjectCards from '../components/art/ProjectCards.astro';
 import SideMenu from '../layouts/SideMenu.astro';
+import CardBundle from '../components/art/CardBundle.astro';
 
 ---
 <SideMenu>
@@ -132,6 +133,10 @@ import SideMenu from '../layouts/SideMenu.astro';
 					]}/>
 				</details>
 			</section>
+			<section hobby-section id="hobby">
+				<h2>Hobby</h2>
+				<CardBundle />
+			</section>
 		</Field>
 </SideMenu>
 
@@ -246,6 +251,16 @@ main {
 
 [stacks-to-learn] {
 	--neon-rgb: 73, 73, 255;
+}
+
+[hobby-section] {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	> h2 {
+		font-size: calc(1.5em + 3vmin);
+	}
 }
 
 </style>
