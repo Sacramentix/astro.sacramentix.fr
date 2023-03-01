@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-iconify';
+
+export type Props = {
+    name: string
+}
+
+const { name } = Astro.props as Props;
+---
+
+<style lang="scss" is:global>
+[country-card] {
+    // handle only perspective so it's per card and don't get wacky with high number of row
+    perspective: 120em;
+    // The container of the flag the neon shadow and the text layered with translateZ
+    > div {
+        display: grid;
+        place-items: center;
+        transform-style: preserve-3d;
+        min-width: 20em;
+        transform: rotate3d(2,-2,1,30deg);
+        position: relative;
+        &::before {
+            content: "";
+            z-index: -1;
+            transform: translateZ(-1px);
+            position: absolute;
+            inset: 0;
+            border-radius: 100vmax;
+            margin: auto;
+            width: 10em;
+            height: 10em;
+            padding: 10%;
+            background: #0ff;
+            transition: all ease-in-out .2s;
+            filter: blur(2px);
+        }
+        > * {
+            grid-area: 1/1;
+        }
+        > [astro-icon] {
+            transition: all ease-in-out .2s;
+        }
+        > span {
+            font-size: 2em;
+            color: black;
+            text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #000, 0 0 5px #000, 0 0 6px #000;
+            opacity: 0;
+            transition: all ease-in-out .2s;
+            transform-style: preserve-3d;
+            text-transform: capitalize;
+        }
+    }
+    &:is(:hover, :focus, :focus-visible) {
+        // to disable default focus outline
+        border: none;
+        outline: none;
+        > div {
+            > [astro-icon] {
+                transform: translateZ(50px);
+                filter: drop-shadow(0 0 1px #0ff) drop-shadow(0 0 1px #0ff);
+            }
+            > span {
+                font-size: 3em;
+                font-weight: bolder;
+                opacity: 1;
+                transform: translateZ(75px);
+            }
+            &::before {
+                filter: blur(30px);
+            }
+        }
+    }
+}
+</style>
+
+<div country-card tabindex="0">
+    <div>
+        <Icon name={`twemoji:flag-${name}`}/>
+        <span>{ name }</span>
+    </div>
+</div>

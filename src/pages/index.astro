@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-iconify';
 import Header from '../components/Header.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
@@ -12,6 +12,8 @@ import HexaGrid from '../components/art/HexaGrid.astro';
 import ProjectCards from '../components/art/ProjectCards.astro';
 import SideMenu from '../layouts/SideMenu.astro';
 import CardBundle from '../components/art/CardBundle.astro';
+import CountryCard from '../components/art/CountryCard.astro';
+// import Achievements from '../components/art/Achievements.astro';
 
 ---
 <SideMenu>
@@ -74,6 +76,10 @@ import CardBundle from '../components/art/CardBundle.astro';
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
 						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
 						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
+						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
+						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
+						{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
@@ -82,7 +88,6 @@ import CardBundle from '../components/art/CardBundle.astro';
 						{link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
 						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
 						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
-						{link:"https://serverless-stack.com/chapters/what-is-serverless.html", icon:"logos:serverless", name:"Serverless"},
 						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
 					]}/>
 				</details>
@@ -92,6 +97,8 @@ import CardBundle from '../components/art/CardBundle.astro';
 					<summary><h2>Stacks I know</h2></summary>
 					<HexaGrid stacks={[
 						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
+						{link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
 						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
 						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
 						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
@@ -121,15 +128,12 @@ import CardBundle from '../components/art/CardBundle.astro';
 					<summary><h2>Stacks I want to learn</h2></summary>
 					<HexaGrid stacks={[
 						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
-						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
-						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
-						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
-						// {link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
-						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
 						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
 						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
 						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
 						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
+						{link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
+						{link:"https://surrealdb.com", icon:"logos:surrealdb-icon", name:"Surreal"},
 					]}/>
 				</details>
 			</section>
@@ -137,6 +141,26 @@ import CardBundle from '../components/art/CardBundle.astro';
 				<h2>Hobby</h2>
 				<CardBundle />
 			</section>
+			<section trip-section id="trip">
+				<h2>Trip</h2>
+				<div>
+					<CountryCard name="france"/>
+					<CountryCard name="germany"/>
+					<CountryCard name="belgium"/>
+					<CountryCard name="netherlands"/>
+					<CountryCard name="denmark"/>
+					<CountryCard name="switzerland"/>
+					<CountryCard name="norway"/>
+					<CountryCard name="finland"/>
+					<CountryCard name="czechia"/>
+					<CountryCard name="austria"/>
+					<CountryCard name="slovakia"/>
+					<CountryCard name="poland"/>
+					<CountryCard name="scotland"/>
+					<CountryCard name="ireland"/>
+				</div>
+			</section>
+			<!-- <Achievements /> -->
 		</Field>
 </SideMenu>
 
@@ -176,6 +200,10 @@ main {
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
 	}
+	h2 {
+		text-align: center;
+		font-size: calc(1.5em + 3vmin);
+	}
 }
 [intro-section] {
 	min-height: 500px;
@@ -188,7 +216,6 @@ main {
 	> h2 {
 		font-size: calc(1.5em + 3.5vmin);
 		flex: 3 0 100px;
-		text-align: center;
 		max-width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -203,10 +230,6 @@ main {
 [projects-section] {
 	display: grid;
 	place-items: center;
-	> h2 {
-		text-align: center;
-		font-size: calc(1.5em + 3vmin);
-	}
 }
 
 [stacks-section] {
@@ -260,6 +283,32 @@ main {
 	align-items: center;
 	> h2 {
 		font-size: calc(1.5em + 3vmin);
+	}
+}
+
+[trip-section] {
+	width: 100%;
+	display: grid;
+	place-items: center;
+	> div {
+		display: flex;
+		justify-content: center;
+		width: 90%;
+		flex-wrap: wrap;
+		gap: 35px;
+	}
+}
+
+[trip-section] {
+	width: 100%;
+	display: grid;
+	place-items: center;
+	> div {
+		display: flex;
+		justify-content: center;
+		width: 90%;
+		flex-wrap: wrap;
+		gap: 35px;
 	}
 }
 

@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-iconify';
 import Nav from "../components/Nav.astro";
 
 const { title = 'Sacramentix portofolio', description = 'The personal site of Sacramentix' } = Astro.props;
@@ -37,10 +37,10 @@ html, body {
 	overscroll-behavior: none;
 }
 body {
+	font-family: 'Source Code Pro', monospace;
 	margin: 0;
 	background: #000;
 	color: #ddd;
-	font-family: 'Source Code Pro', monospace;
 	font-display: swap;
 
 	overflow-x: scroll;
