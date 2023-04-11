@@ -1,0 +1,352 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { Icon } from 'astro-iconify';
+---
+<Layout title="Sacramentix CV">
+	<main>
+		<div cv-side>
+			<p for-ats>
+				Si vous lisez ceci c'est que vous lisez mon CV au format txt que votre ATS à générer à partir du format PDF.
+			</p>
+			<img cv-logo src="/favicon.svg" width="500" height="711" alt=" fake 3d S logo">
+			<h1>Sacramentix<br>alias<br>Benjamin Gilloury</h1>
+			<div cv-location>
+				<h2>Adresses</h2>
+				<p>Clamart, 92140</p>
+			</div>
+			<div cv-links>
+				<h2>Liens</h2>
+				<a href="https://github.com/Sacramentix"><Icon name="mdi:github"/>github.com/Sacramentix</a>
+				<a href="https://sacramentix.fr"><Icon name="pepicons-pop:internet"/>sacramentix.fr</a>
+			</div>
+			<address cv-contact>
+				<h2>Contact</h2>
+				<a href="mailto:benjamin.gilloury@gmail.com"><Icon name="mdi:email"/>benjamin.gilloury@gmail.com</a>
+				<a href="tel:+33783961868"><Icon name="mdi:phone"/>+33 7 83 96 18 68</a>
+			</address>
+			<section cv-who-i-am>
+				<h2>Qui suis-je?</h2>
+				<p>
+					Je suis un développeur full-stack passionné depuis plus de 3 ans.
+					Je découvre avec curiosité les dernières stacks pour écrire du code propre et maintenable.
+					Mes valeurs sont sobriété, esprit critique et savoir libre.
+				</p>
+			</section>
+			<section cv-what-i-want>
+				<h2>Ce que je recherche ?</h2>
+				<p>
+					Je recherche une équipe soudée pour résoudre les enjeux de demain afin de rendre le monde meilleur.
+					Je suis ouvert pour poste en CDI en présentiel ou en remote.
+				</p>
+			</section>
+			<p for-ats>
+				(
+				Si vous lisez ceci c'est que votre ATS trie les CV.
+				je me permet donc de placer ceci.
+				Bac +5 Master en informatique.
+				5 ans d'expérience dans le domaine du développement web full-stack.
+				)
+			</p>
+		</div>
+		<div cv-content>
+			<section cv-stacks>
+				<h2><Icon name="bi:stack"/>Stacks</h2>
+				<div>
+					<h3>que j'adore</h3>
+					<ul>
+						<li><b>Typescript</b></li>
+						<li><b>Vue</b></li>
+						<li><b>Node</b></li>
+						<li><b>Deno</b></li>
+						<li><b>Haxe</b></li>
+						<li>Javascript</li>
+						<li>Vite</li>
+						<li>Astro</li>
+						<li>Nuxt</li>
+						<li>Git</li>
+						<li>Github</li>
+						<li>JWT</li>
+						<li>Ory</li>
+						<li>Surreal DB</li>
+						<li>Docker</li>
+						<li>Chrome dev tools</li>
+						<li>Visual Studio Code</li>
+						<li>Fastify</li>
+						<li>Graph QL</li>
+						<li>Netlify</li>
+					</ul>
+				</div>
+				<div>
+					<h3>que je connais</h3>
+					<ul>
+						<li>React</li>
+						<li>Next</li>
+						<li>Gitlab</li>
+						<li>Python</li>
+						<li>Go</li>
+						<li>SQL</li>
+						<li>Arango DB</li>
+						<li>Express</li>
+						<li>Webpack</li>
+						<li>Supabase</li>
+						<li>GCP</li>
+						<li>Mongo DB</li>
+					</ul>
+				</div>
+				<div>
+					<h3>que je déteste</h3>
+					<ul>
+						<li>PHP</li>
+						<li>Symfony</li>
+						<li>Java</li>
+						<li>Spring</li>
+						<li>JQuery</li>
+						<li>Wordpress</li>
+					</ul>
+				</div>
+				<div>
+					<h3>que j'ai envie d'apprendre</h3>
+					<ul>
+						<li>Svelte</li>
+						<li>Nest</li>
+						<li>Rust</li>
+						<li>Kubernetes</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2><Icon name="icon-park-solid:experiment"/>Expériences</h2>
+				<div>
+					<h3>Naostre</h3>
+					<h4>Dev full-stack | 1an</h4>
+					<p>
+						Développement back et front d'une application web pour sensibiliser les employés d'une
+						entreprise aux démarches environementalles.
+						Backend Node js, Fastify, Mongo Db. Frontend Quasar, Vue.
+					</p>
+					<p>
+						Projet réaliser sur mon temps avec un groupe d'amis sur 1 an avec comme client Clear Channel.
+					</p>
+				</div>
+				<div>
+					<h3>Agence web</h3>
+					<h4>Dev full-stack | 3mois</h4>
+					<p>
+						Réalisation de site web vitrine à partir de maquette dessiner par un graphiste.
+					</p>
+				</div>
+				<div>
+					<h3>Aguaro</h3>
+					<h4>Alternant Dev full-stack | 1an</h4>
+					<p>
+						Réalisation de divers widget sur la platforme Service Now pour l'application My IT footprint.
+					</p>
+					<p>
+						Automatisation de la récupération d'information environemental sur les profils de matériel
+						informatique au format PDF afin d'alimenté un base de donnée utilisé par My IT Footprint.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2><Icon name="mdi:telescope"/>Hobby</h2>
+				<h3>Voyages</h3>
+				<p>Allemagne, Finlande, Norvège, Irlande, Écosse, République tchèque...</p>
+				<h3>Sport</h3>
+				<p>Badminton, Natation, Tennis de Table, Vélo, Trekking...</p>
+				<h3>Jeux vidéo</h3>
+				<p>Heroes of Might and Magic, Terraria, Dark Souls, Trackmania, Minecraft...</p>
+			</section>
+			<section cv-education>
+				<h2><Icon name="ic:round-school"/>Formations</h2>
+				<ul>
+					<li>
+						<h3>Licence Pro Métier de l'Informatique: Applications Réparties</h3>
+						<b>Iut de Nantes</b>
+					</li>
+					<li>
+						<h3>BTS services informatiques aux organisations</h3>
+						<b>Lycée la Colinière, Nantes</b>
+					</li>
+					<li>
+						<h3>Bac Scientifique</h3>
+						<b>Lycée Alcide d'orbigny, Bouaye</b>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</main>
+	<button no-print save-as-pdf onclick="window.print()">Save as pdf</button>
+</Layout>
+
+<style lang="scss" is:global>
+[astro-icon] {
+	width: 1.5em;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #000;
+	padding: 25px 0;
+}
+h1, h2, h3, h4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1ch;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.8em;
+}
+
+h2 {
+	text-align: center;
+	font-size: 1.4em;
+	margin: 0.5em;
+	color: hsl(175, 100%, 50%);
+}
+
+h3 {
+	text-align: center;
+	margin: 0.25em;
+	color: hsl(175, 60%, 50%);
+}
+
+h4 {
+	text-align: center;
+	margin: 0.15em;
+	color: hsl(175, 30%, 50%);
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+ul {
+	margin: 0.25em;
+}
+
+
+main {
+	margin: 0 auto;
+	max-width: 1000px;
+	aspect-ratio: 8.27/11.67;
+	border-radius: 5px;
+	background: #222;
+	color: #eee;
+	font-family: 'Source Code Pro', monospace;
+	display: grid;
+	padding: 5px;
+	gap: 5px;
+	grid-template-areas:
+	"s c c";
+	grid-template-columns: .9fr 1fr 1fr;
+	// set the font size to 16 pixel when the screen is at least 1000px with a padding of 5px
+	font-size: min(calc((100vw - (5px * 2)) / (1000 / 16)), 16px);
+	box-shadow: 0 0 5px cyan;
+}
+
+[cv-side] {
+	grid-area: s;
+	// background: #fff3;
+	border-right: 1px solid #ddd;
+	// border-radius: 5px;
+	padding: 1ch;
+}
+[cv-content] {
+	grid-area: c;
+	// background: #fff3;
+	padding: 1ch;
+}
+
+[cv-logo] {
+	grid-area: i;
+	// background: #fff3;
+	border-radius: 5px;
+	max-width: 100%;
+	max-height: 20em;
+}
+[cv-links] {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 1ch;
+	}
+}
+[cv-contact] {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 1ch;
+	}
+}
+
+[cv-stacks] {
+	border-radius: 5px;
+	
+	ul {
+		column-count: 3;
+	}
+}
+
+[cv-education] {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		gap: 2ch;
+	}
+	li {
+		max-width: 35%;
+	}
+}
+
+[save-as-pdf] {
+
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	background: rgb(246, 82, 56);
+	color: #fff;
+	font-size: 1.5em;
+	border: none;
+	border-radius: 25px;
+	padding: 15px;
+	cursor: pointer;
+	transition: transform ease-in-out .1s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+[for-ats] {
+	color: #222;
+	font-size: 1px;
+	padding: 0;
+	margin: 0;
+}
+
+// CSS for the prit layout
+@page { size: auto;  margin: 0mm; }
+@media print {
+	main {
+		padding: 0;
+		margin: 0;
+		// font-size: 12px;
+	}
+	body {
+		background: #222;
+		padding: 0;
+	}
+   	[no-print] {
+		display: none!important
+	}
+}
+</style>
