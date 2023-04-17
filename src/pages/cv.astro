@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-iconify';
+import QrCode from '../assets/qr-code-cv.png';
 ---
 <html lang="fr">
 	<head>
@@ -46,6 +47,7 @@ import { Icon } from 'astro-iconify';
                         Je suis ouvert pour poste en CDI en présentiel ou en remote.
                     </p>
                 </section>
+                <img cv-qr-code src={QrCode} width="21" height="21" alt="QR code to this page">
             </div>
             <div cv-content>
                 <section cv-stacks>
@@ -305,6 +307,17 @@ main {
 	li {
 		max-width: 35%;
 	}
+}
+
+[cv-qr-code] {
+    border-radius: 5px;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    background: #fff;
+
 }
 
 [save-as-pdf] {
