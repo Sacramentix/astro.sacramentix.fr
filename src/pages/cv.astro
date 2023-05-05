@@ -133,7 +133,7 @@ import QrCode from '../assets/qr-code-cv.png';
                         <h3>Agence web</h3>
                         <h4>Dev full-stack | 3mois</h4>
                         <p>
-                            Réalisation de site web vitrine à partir de maquette dessinées par un graphiste.
+                            Réalisation de site web vitrine à partir de maquette dessinées par un graphiste. (Nuxt, Vue, js)
                         </p>
                     </div>
                     <div>
@@ -145,6 +145,8 @@ import QrCode from '../assets/qr-code-cv.png';
                         <p>
                             Automatisation de la récupération d'information environnemental sur les profils de matériel
                             informatique au format PDF afin d'alimenter un base de donnée utilisé par My IT Footprint.
+                            (Python, Node, Typescript)
+                            <i easter-egg>Hey vous avez lu mon CV jusqu'ici? Voici un récompense sur ce <a href="https://hr-medals.pages.dev/?new">lien</a>.</i>
                         </p>
                     </div>
                 </section>
@@ -233,6 +235,10 @@ ul {
 	margin: 0.25em;
 }
 
+p {
+    margin: 1ch 0;
+}
+
 
 main {
 	margin: 0 auto;
@@ -263,7 +269,7 @@ main {
 [cv-content] {
 	grid-area: c;
 	// background: #fff3;
-	padding: 1ch;
+	padding: 0 1ch;
 }
 
 [cv-logo] {
@@ -336,6 +342,17 @@ main {
 	&:hover {
 		transform: scale(1.1);
 	}
+}
+
+[easter-egg] {
+    margin: 0;
+    display: inline;
+    font-size: .7em;
+    opacity: .6;
+    > a {
+        color: inherit;
+        text-decoration: underline;
+    }
 }
 
 [for-ats] {
