@@ -35,7 +35,7 @@ import QrCode from '../assets/qr-code-cv.png';
                 <section cv-who-i-am>
                     <h2>Qui suis-je?</h2>
                     <p>
-                        Je suis un développeur full-stack passionné depuis plus de 3 ans.
+                        Je suis un <strong>développeur full-stack</strong> passionné depuis plus de 3 ans.
                         Je découvre avec curiosité les dernières stacks pour écrire du code propre et maintenable.
                         Mes valeurs sont sobriété, esprit critique et savoir libre.
                     </p>
@@ -313,6 +313,14 @@ main {
 	li {
 		max-width: 35%;
 	}
+}
+
+[cv-who-i-am] {
+    strong {
+        font-size: 1.1em;
+        font-weight: 900;
+        color: hsl(175, 80%, 50%);
+    }
 }
 
 [cv-qr-code] {
