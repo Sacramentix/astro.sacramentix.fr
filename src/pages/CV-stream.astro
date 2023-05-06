@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-iconify';
+import QrCode from '../assets/qr-code-cv.png';
 ---
 <html lang="fr">
 	<head>
@@ -12,8 +13,11 @@ import { Icon } from 'astro-iconify';
 	<body>
         <main>
             <div cv-side>
+                <p for-ats>
+                    Si vous lisez ceci c'est que vous lisez mon CV au format txt que votre ATS à générer à partir du format PDF.
+                </p>
                 <img cv-logo src="/favicon.svg" width="500" height="711" alt=" fake 3d S logo">
-                <h1>Sacramentix<br>Dev full-stack</h1>
+                <h1>Sacramentix<br>alias<br>???</h1>
                 <div cv-location>
                     <h2>Adresses</h2>
                     <p>Clamart, 92140</p>
@@ -25,8 +29,8 @@ import { Icon } from 'astro-iconify';
                 </div>
                 <address cv-contact>
                     <h2>Contact</h2>
-                    <!-- <a href="mailto:benjamin.gilloury@gmail.com"><Icon name="mdi:email"/>benjamin.gilloury@gmail.com</a>
-                    <a href="tel:+33783961868"><Icon name="mdi:phone"/>+33 7 83 96 18 68</a> -->
+                    <!-- <a href="mailto:benjamin.gilloury@gmail.com"><Icon name="mdi:email"/>benjamin.gilloury@gmail.com</a> -->
+                    <!-- <a href="tel:+33783961868"><Icon name="mdi:phone"/>+33 7 83 96 18 68</a> -->
                 </address>
                 <section cv-who-i-am>
                     <h2>Qui suis-je?</h2>
@@ -43,6 +47,7 @@ import { Icon } from 'astro-iconify';
                         Je suis ouvert pour poste en CDI en présentiel ou en remote.
                     </p>
                 </section>
+                <img cv-qr-code src={QrCode} width="21" height="21" alt="QR code to this page">
             </div>
             <div cv-content>
                 <section cv-stacks>
@@ -114,32 +119,34 @@ import { Icon } from 'astro-iconify';
                     <h2><Icon name="icon-park-solid:experiment"/>Expériences</h2>
                     <div>
                         <h3>Naostre</h3>
-                        <h4>Dev full-stack | 1an</h4>
+                        <h4>Lead dev full-stack | 1an</h4>
                         <p>
                             Développement back et front d'une application web pour sensibiliser les employés d'une
-                            entreprise aux démarches environementalles.
+                            entreprise aux démarches environementales.
                             Backend Node js, Fastify, Mongo Db. Frontend Quasar, Vue.
                         </p>
                         <p>
-                            Projet réaliser sur mon temps avec un groupe d'amis sur 1 an avec comme client Clear Channel.
+                            Projet réalisé sur mon temps avec un groupe d'amis sur 1 an avec comme client Clear Channel.
                         </p>
                     </div>
                     <div>
                         <h3>Agence web</h3>
                         <h4>Dev full-stack | 3mois</h4>
                         <p>
-                            Réalisation de site web vitrine à partir de maquette dessiner par un graphiste.
+                            Réalisation de site web vitrine à partir de maquette dessinées par un graphiste. (Nuxt, Vue, js)
                         </p>
                     </div>
                     <div>
                         <h3>Aguaro</h3>
                         <h4>Alternant Dev full-stack | 1an</h4>
                         <p>
-                            Réalisation de divers widget sur la platforme Service Now pour l'application My IT footprint.
+                            Réalisation de divers widget sur la plateforme Service Now pour l'application My IT footprint.
                         </p>
                         <p>
-                            Automatisation de la récupération d'information environemental sur les profils de matériel
-                            informatique au format PDF afin d'alimenté un base de donnée utilisé par My IT Footprint.
+                            Automatisation de la récupération d'information environnemental sur les profils de matériel
+                            informatique au format PDF afin d'alimenter un base de donnée utilisé par My IT Footprint.
+                            (Python, Node, Typescript)
+                            <i easter-egg>Hey vous avez lu mon CV jusqu'ici? Voici un récompense sur ce <a href="https://hr-medals.pages.dev/?new">lien</a>.</i>
                         </p>
                     </div>
                 </section>
@@ -228,6 +235,10 @@ ul {
 	margin: 0.25em;
 }
 
+p {
+    margin: 1ch 0;
+}
+
 
 main {
 	margin: 0 auto;
@@ -258,7 +269,7 @@ main {
 [cv-content] {
 	grid-area: c;
 	// background: #fff3;
-	padding: 1ch;
+	padding: 0 1ch;
 }
 
 [cv-logo] {
@@ -304,6 +315,17 @@ main {
 	}
 }
 
+[cv-qr-code] {
+    border-radius: 5px;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    background: #fff;
+
+}
+
 [save-as-pdf] {
 
 	position: fixed;
@@ -320,6 +342,17 @@ main {
 	&:hover {
 		transform: scale(1.1);
 	}
+}
+
+[easter-egg] {
+    margin: 0;
+    display: inline;
+    font-size: .7em;
+    opacity: .6;
+    > a {
+        color: inherit;
+        text-decoration: underline;
+    }
 }
 
 [for-ats] {
