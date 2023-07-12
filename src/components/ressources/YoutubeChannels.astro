@@ -1,0 +1,68 @@
+---
+import IconOpenInNew from '~icons/mdi/open-in-new';
+
+export interface Props {
+    channels: {
+        id: string;
+        name: string;
+        desc: string;
+        img: string;
+    }[]
+}
+
+const { channels = [] } = Astro.props;
+
+---
+<div youtube-channels>
+    { channels.map(c => 
+    <div youtube-channel>
+        <img src={c.img} alt="" referrerpolicy="no-referrer"/>
+        <h3>
+            { c.name }
+            <a href={'https://www.youtube.com/channel/' + c.id} target="_blank" ><IconOpenInNew/></a>
+        </h3>
+        <p>{ c.desc }</p>
+    </div>
+    )}
+</div>
+<style lang="scss" is:global>
+[youtube-channels] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    padding: 15px;
+}
+[youtube-channel] {
+    flex: 0 1 40ch;
+    background: #fff1;
+    border-radius: 15px;;
+    padding: 15px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: min-content auto;
+    grid-template-areas: 
+        "i h"
+        "p p";
+    > img {
+        grid-area: i;
+        border-radius: 100vmax;
+    }
+    > h3 {
+        margin: 0;
+        grid-area: h;
+        text-align: center;
+        a {
+            vertical-align: middle;
+            color: #0bc3c3;
+            &:visited {
+                color: rgb(113, 34, 113);
+            }
+        }
+    }
+    > p {
+        grid-area: p;
+    }
+}
+</style>

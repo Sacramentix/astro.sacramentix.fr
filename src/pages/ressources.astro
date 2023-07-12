@@ -1,0 +1,130 @@
+---
+import { Icon } from 'astro-iconify';
+import SideMenu from '../layouts/SideMenu.astro';
+import YoutubeChannels from '../components/ressources/YoutubeChannels.astro';
+
+const englishDevChannels = [
+    {
+        id: 'UCnUYZLuoy1rq1aVMwx4aTzw',
+        name: "Chrome Developers",
+        desc: "Official Youtube channel of Google Chrome dev team. Follow this channel to be informed of all the news of the web!",
+        img: "https://yt3.googleusercontent.com/ytc/AAUvwniL7QUpTiyGjIpNfk6g7eCkMSB3yjnMS4wkMvY49Q=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCJZv4d5rbIKd4QHMPkcABCw',
+        name: "Kevin Powell",
+        desc: "You love css? Then you will love this css wizard channel! You will learn awesome css tricks to improve your website.",
+        img: "https://yt3.googleusercontent.com/ytc/AAUvwngmy_4_dTEMieSCIh8CL8SYgTg7uqIIb_ajY8O_zg=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCsBjURrPoezykLs9EqgamOA',
+        name: "Fireship",
+        desc: "Want to have a quick review of new stacks? This channel present them in a 100 seconds format!",
+        img: "https://yt3.googleusercontent.com/ytc/AAUvwnjWfh0Ki7uJWaYNhpZyG8ataxCL9N5SscOhfZfGXg=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UC8butISFwT-Wl7EV0hUK0BQ',
+        name: "Free Code Camp",
+        desc: "This channel offers free tutorials on a large amount of stack!",
+        img: "https://yt3.googleusercontent.com/ytc/AAUvwnifaQZvAunS0OFb2y_cieoVjLCVjqQW8Exf3BC1gg=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCswG6FSbgZjbWtdf_hMLaow',
+        name: "Matt Pocock",
+        desc: "Typescript news and tricks!",
+        img: "https://yt3.googleusercontent.com/RbinzR4AEg_qhUggLwZxYTgAM5o_AcdELqz8eYTb0qLQkWEkWAhlBXRmfg-aTF7hqp3U9izu=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCqC2G2M-rg4fzg1esKFLFIw',
+        name: "Deno",
+        desc: "News on Deno!",
+        img: "https://yt3.googleusercontent.com/ytc/AOPolaQuVuhA9AU3B45ml4gnIdr1sJEsKXm5Ks1-a4nJ=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCcAlTqd9zID6aNX3TzwxJXg',
+        name: "The Art of Code",
+        desc: "Want to learn Shader? This channel provide a large amount of knowledge from beginners to master!",
+        img: "https://yt3.googleusercontent.com/ytc/AAUvwnhMOVOXUv5mqRnsrPxhGqju2xtKUgtdY11gOvqa=s88-c-k-c0x00ffffff-no-rj",
+    },
+];
+
+const frenchDevChannels = [
+    {
+        id: 'UCgJERWtcvu-JiPq5wBkYF1g',
+        name: "Dev theory",
+        desc: "News sur l'écosystème Typescript!",
+        img: "https://yt3.googleusercontent.com/vZZYsxvAjOIxpKpJH4bGGgiLAeN4HXCd3BJCkGE_IXubJI35isM66UHX8cQdKTJK3820jY0ZyA=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCLOAPb7ATQUs_nDs9ViLcMw',
+        name: "Benjamin Code",
+        desc: "...",
+        img: "https://yt3.googleusercontent.com/ytc/AOPolaS6gIsNDZz1mHB2aLaACFJ-qRUQcmuLtkNTLJ8Nkg=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCIHVyohXw6j2T-83-uLngEg',
+        name: "Graven",
+        desc: "Cours pour débutant sur différent sujet",
+        img: "https://yt3.googleusercontent.com/ytc/AOPolaTAM_24T53GD3OsIX0ggFz5XRCTF1mJ6-jhBlibrg=s88-c-k-c0x00ffffff-no-rj",
+    },
+    {
+        id: 'UCj_iGliGCkLcHSZ8eqVNPDQ',
+        name: "Grafikart",
+        desc: "Encore des cours pour débutant sur différent sujet",
+        img: "https://yt3.googleusercontent.com/a75KJ4bnnDwF0VP-2IAw6d_7DB37LUZYS6CxU2ocpYK9rqVRaE3SCIu_mjqm7cACL1qiTylV4w=s88-c-k-c0x00ffffff-no-rj",
+    },
+];
+
+const chillChannels = [
+    {
+        id: 'UCdC0An4ZPNr_YiFiYoVbwaw',
+        name: "Daily Dose Of Internet",
+        desc: "For internet addict.",
+        img: "https://yt3.googleusercontent.com/ytc/AOPolaRdxv9KEY7Y3oupfZcHvnfFK0LMXWuCwF3Nq9d9_Q=s88-c-k-c0x00ffffff-no-rj",
+    }
+];
+
+---
+<SideMenu>
+	<section lang="en">
+		<h2>English dev Youtube channel</h2>
+		<YoutubeChannels channels={englishDevChannels}/>
+	</section>
+	<section lang="fr">
+		<h2>Chaine Youtube de dev français</h2>
+		<YoutubeChannels channels={frenchDevChannels}/>
+	</section>
+	<!-- <section lang="en">
+		<h2>Chill Youtube channel</h2>
+		<YoutubeChannels channels={frenchDevChannels}/>
+	</section> -->
+</SideMenu>
+
+
+<style is:global lang="scss">
+
+body {
+	margin: 0;
+	background: #000;
+	color: #ddd;
+	font-family: 'Source Code Pro', monospace;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+main {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	place-items: start center;
+	background: #000;
+	h2 {
+		text-align: center;
+		font-size: calc(1.5em + 3vmin);
+	}
+}
+
+</style>

@@ -10,10 +10,14 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^1.2.2",
+    "@iconify-json/mdi": "^1.1.53",
     "astro": "^2.3.4",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "unplugin-icons": "^0.16.5"
   },
   "dependencies": {
-    "astro-iconify": "^1.2.0"
+    "@astrojs/vue": "^2.2.1",
+    "astro-iconify": "^1.2.0",
+    "vue": "^3.2.30"
   }
 }
