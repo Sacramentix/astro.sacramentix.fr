@@ -67,7 +67,7 @@ import QrCode from '../assets/qr-code-cv.png';
                         </p>
                         <p>
                             Les stacks pour le front sont Laravel 7 avec PHP 7.4.33 et Vue 3.
-                            Pour le backend des microservices en Node JS, express avec Javascript vanilla et Typescript sur les composant les plus récents.
+                            Pour le backend des microservices en Node JS, Express avec Javascript vanilla et Typescript sur les composants les plus récents.
                         </p>
                     </div>
                     <div>
@@ -143,7 +143,7 @@ import QrCode from '../assets/qr-code-cv.png';
                             <li>Mongo DB</li>
                         </ul>
                     </div>
-                    <div>
+                    <div no-print>
                         <h3>que je délaisse</h3>
                         <ul>
                             <li>PHP</li>
@@ -154,7 +154,7 @@ import QrCode from '../assets/qr-code-cv.png';
                             <li>Wordpress</li>
                         </ul>
                     </div>
-                    <div>
+                    <div  no-print>
                         <h3>que j'ai envie d'apprendre</h3>
                         <ul>
                             <li>Terraform</li>
@@ -389,10 +389,14 @@ main {
 	main {
 		padding: 0;
 		margin: 0;
+        background: #fff;
+        color: #000;
 		// font-size: 12px;
 	}
+    h1, h2, h3, h4, h5, strong {
+        filter: brightness(0.6);
+    }
 	body {
-		background: #222;
 		padding: 0;
 	}
    	[no-print] {
