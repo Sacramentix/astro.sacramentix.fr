@@ -30,7 +30,7 @@ cd astro.sacramentix.fr
 ```
 
 #### Node js
-- Make sure you have v14 or higher. You can install it from the official website [here](https://nodejs.org).
+- Make sure you have v20 or higher. You can install it from the official website [here](https://nodejs.org).
 
 ## 🧞 Commands
 
