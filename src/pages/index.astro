@@ -26,14 +26,17 @@ import CountryCard from '../components/art/CountryCard.astro';
 				</h2>
 				<div>
 					<p>
-						I'm a perfectionist web developer who is looking for a challenging quest to complete.
+						I'm a web developer who is looking for a challenging quest to complete.
 						I love to build new ideas with the latest stack I've discovered.
-						Furthermore, I make my project has accessible as possible for everyone without discrimination.
+						Furthermore, I make my project has <b>accessible</b> as possible for everyone without discrimination.
 					</p>
 					<ul>
-						<li>I'm always following latest technologie and use them wisely to write clean code.</li>
-						<li>I'm an adept of the Jamstack and the Keep It Simple and Stupid principle.</li>
-						<li>I'm agile critical thinkers</li>
+						<li>I'm always following <b>latest technologie</b> and use them wisely to write clean code.</li>
+						<li>I'm an adept of the <b>Jamstack</b> and the Keep It Simple and Stupid principle.</li>
+						<li>I prefer<b> static</b> over dynamic typing.</li>
+						<li>I enjoy <b>functionnal paradigm</b> more than object-oriented.</li>
+						<li>I also like to take time to <b>improve the Developer Experience</b> for my team member...</li>
+						<li>... and improving the <b>Continous Integration and Deployment</b> process with my <b>Dev Ops skill</b>.</li>
 					</ul>
 				</div>
 			</section>
@@ -42,23 +45,33 @@ import CountryCard from '../components/art/CountryCard.astro';
 					Projects
 				</h2>
 				<ProjectCards projects={[
-					{link: "https://wikiadventu.re", img: WikiAdventureSvg ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
+					{link: "https://wikiadventu.re", img: WikiAdventureSvg.src ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
 						Wiki Adventure is a multiplayer game combining culture and speed. 
 						Players compete against each other on Wikipedia and have to scroll 
 						through the pages as quickly as possible to win.`},
-					{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
+					{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg.src  ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
 						Daily Wiki Adventure is a solo daily game where you must go from a 
 						Wikipedia start page to a target page as fast as you can with fewest amount of link possible.
-						Share your Dail Wiki Adventure epic now!`},
-					{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
+						Share your Daily Wiki Adventure epic now!`},
+					{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg.src ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
 						Six Degrees of Wiki adventure is a web app where you can request all shortests
 						paths between 2 Wikipedia page. and visualize them with their description and thumbnail.
 						It's inspired by the sixdegreesofwikipedia.com , but it's available in more language than
 						just english. `},
-					{link: "https://astro.build", img: AstroSvg ,alt: "Astro logo", width:1281, height:1280, description: `
-						I recently redesigned my website you see here with Astro.
-						Better than ever before!`},
+					{link: "https://astro.build", img: AstroSvg.src ,alt: "Astro logo", width:1281, height:1280, description: `
+						I've made my website you see here with Astro.
+						Best score possible on Google Lighthouse!`},
 				]}/>
+			</section>
+			<section meetup-section>
+				<h2>Meetup</h2>
+				<p>
+					I enjoy attending meetup themed around Typescript and Vue js ecosystem.
+					Meaby you could meet me in Paris at
+					<a href="https://meetup.com/fr-FR/paris-typescript">Typescript <Icon meetup name="cib:meetup"></a>
+					 or 
+					<a href="https://meetup.com/fr-FR/vuejs-paris">Vue <Icon meetup name="cib:meetup"></a>.
+				</p>
 			</section>
 			<section stacks-section loved-stacks id="stacks">
 				<details open>
@@ -73,23 +86,20 @@ import CountryCard from '../components/art/CountryCard.astro';
 						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-						{link:"https://astro.build", img: AstroSvg, alt:"Astro icon", name:"Astro"},
+						{link:"https://astro.build", img: AstroSvg.src, alt:"Astro icon", name:"Astro"},
 						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
-						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
-						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
 						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
 						{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
-						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Javascript"},
 						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
 						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
-						// {link:"http://www.heroku.com", icon:"logos:heroku-icon", name:"Heroku"},
+						{link:"http://fly.io", icon:"logos:fly-icon", name:"fly.io"},
 						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
 						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
 						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
 						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
-						{link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
+						// {link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
 						{link:"https://surrealdb.com", icon:"logos:surrealdb-icon", name:"Surreal"},
 					]}/>
 				</details>
@@ -98,17 +108,23 @@ import CountryCard from '../components/art/CountryCard.astro';
 				<details>
 					<summary><h2>Stacks I know</h2></summary>
 					<HexaGrid stacks={[
+						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
 						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
 						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
-						{link:"https://gun.eco", icon:"logos:gunjs", name:"Gun js"},
 						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
 						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
 						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
 						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
 						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
 						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
+						{link:"https://www.php.net", icon:"logos:php", name:"PHP 8+"},
+						{link:"https://www.java.com", icon:"logos:php", name:"Java 21+"},
 						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
 						{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
+						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
 					]}/>
 				</details>
 			</section>
@@ -116,10 +132,9 @@ import CountryCard from '../components/art/CountryCard.astro';
 				<details>
 					<summary><h2>Stacks I hate</h2></summary>
 					<HexaGrid stacks={[
-						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP"},
-						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
-						{link:"https://www.java.com", icon:"logos:java", name:"Java"},
-						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
+						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Vanilla JS"},
+						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP 7"},
+						{link:"https://www.java.com", icon:"logos:java", name:"Java 8"},
 						{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
 						{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
 					]}/>
@@ -131,7 +146,6 @@ import CountryCard from '../components/art/CountryCard.astro';
 					<HexaGrid stacks={[
 						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
 						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
-						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
 						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
 					]}/>
 				</details>
@@ -174,12 +188,13 @@ body {
 }
 
 [astro-icon] {
-	&[teal] {--clr: #0bc3c3;}
-	&[green] {--clr: #19ab19;}
-	&[red] {--clr: #e04848;}
+	&[teal]   {--clr: #0bc3c3;}
+	&[green]  {--clr: #19ab19;}
+	&[red]    {--clr: #e04848;}
 	&[orange] {--clr: #fab32e;}
-	&[blue] {--clr: #378ae9;}
-	&[white] {--clr: #fff;}
+	&[blue]   {--clr: #378ae9;}
+	&[white]  {--clr: #fff;}
+	
 }
 
 * {
@@ -229,6 +244,26 @@ main {
 [projects-section] {
 	display: grid;
 	place-items: center;
+	> p {
+		text-align: center;
+	}
+}
+
+[meetup-section] {
+	display: grid;
+	place-items: center;
+	a {
+		text-decoration: none;
+		color: #F64060;
+		&:visited {
+			color: #db0a31;
+		}
+	}
+	[meetup] {
+		height: 1.5em;
+		vertical-align: middle;
+		display: inline;
+	}
 }
 
 [stacks-section] {
@@ -236,6 +271,25 @@ main {
 		display: grid;
 		place-items: center;
 		width: 100%;
+		&::details-content {
+			transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+			width: 100%;
+			overflow: hidden;
+			height: 0;
+		}
+		@supports (height: calc-size(auto, size)) {
+			&[open]::details-content {
+				height: calc-size(auto, size);
+			}
+		}
+		@supports not (height: calc-size(auto, size)) {
+			&::details-content {
+				transition-duration: 0;
+			}
+			&[open]::details-content {
+				height: auto;
+			}
+		}
 	}
 
 	summary {
