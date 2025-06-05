@@ -16,7 +16,7 @@ const { channels = [] } = Astro.props;
 <div youtube-channels>
     { channels.map(c => 
     <div youtube-channel>
-        <img src={c.img} alt="" referrerpolicy="no-referrer"/>
+        <img src={c.img} alt="" referrerpolicy="no-referrer" loading="lazy"/>
         <h3>
             { c.name }
             <a href={'https://www.youtube.com/channel/' + c.id} target="_blank" ><IconOpenInNew/></a>
