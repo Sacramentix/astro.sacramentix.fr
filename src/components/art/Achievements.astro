@@ -1,0 +1,98 @@
+---
+import { Icon } from 'astro-iconify';
+---
+<style is:global lang="scss">
+
+[achievement-section] {
+	width: 100%;
+	display: grid;
+	place-items: center;
+    gap: 15px;
+    padding-bottom: 30px;
+	> div {
+		border-radius: 100vmax;
+		background: #00d5ff;
+		width: 8rem;
+		max-width: 100vw;
+		height: 8rem;
+		animation: popup 15s ease-in-out forwards;
+		align-items: center;
+		color: #fff;
+		font-size: 1.5em;
+        display: none;
+		> p {
+			font-size: 1.5rem;
+			animation: fade-in-out 15s linear forwards;
+			margin: 0 1em 0 0;
+		}
+		> :is(svg, figure) {
+			box-sizing: content-box;
+			padding: 1rem;
+			min-width: 6rem;
+			min-height: 6rem;
+			transform-origin: center;
+			animation: innerpopup 15s ease-in-out forwards;
+			margin: 0;
+		}
+	}
+    &[visible="true"] > div {
+        display: flex;
+    }
+	@keyframes popup {
+        0% {
+            transform: scale(0);
+        }
+        5% {
+            transform: scale(1.1);
+        }
+        10% {
+            transform: scale(1);
+        }
+        15% {
+            width: 8rem;
+        }
+        20%, 100% {
+            width: 32rem;
+        }
+    }
+
+    @keyframes innerpopup {
+        0% {
+            transform: scale(0);
+        }
+        10% {
+            transform: scale(1.1);
+        }
+        15%, 100% {
+            transform: scale(1);
+        }
+    }
+	@keyframes fade-in-out {
+        0%, 20% {
+            opacity: 0;
+        }
+        25%, 100% {
+            opacity: 1;
+        }
+    }
+    [dark-souls] {
+        background: orange;
+    }
+}
+</style>
+<section achievement-section id="achievement">
+    <h2>Achievement</h2>
+    <div achievement-pill frozen-lake><Icon name="ion:snow"/><p>Swim in a frozen lake after a sauna in Finland</p></div>
+    <div achievement-pill dark-souls><Icon name="ion:bonfire"/><p>Complete Dark souls 3</p></div>
+</section>
+<script lang="ts">
+
+const observer = new IntersectionObserver((es, observer) =>
+  es.forEach(e => !e.target.hasAttribute("visible") && e.isIntersecting && e.target.setAttribute("visible", null))
+, {
+  root: document.querySelector("main"),
+  rootMargin: '0px',
+  threshold: 1.0
+})
+observer.observe(document.querySelector("[achievement-section]"));
+</script>

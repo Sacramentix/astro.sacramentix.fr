@@ -6,6 +6,7 @@ import WikiAdventureSvg from "../assets/wikiAdventure.svg";
 import DailyWikiAdventureSvg from "../assets/dailyWikiAdventure.svg";
 import SixDegreeOfWikiAdventurSvg from "../assets/sixDegreeOfWikiAdventure.svg";
 import AstroSvg from "../assets/astro.svg";
+import ChiseledPng from "../assets/chiseled-enchanting-table.png";
 
 import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
@@ -45,24 +46,51 @@ import CountryCard from '../components/art/CountryCard.astro';
 					Projects
 				</h2>
 				<ProjectCards projects={[
-					{link: "https://wikiadventu.re", img: WikiAdventureSvg.src ,alt: "The Wiki Adventure logo", width:52, height:32, description: `
-						Wiki Adventure is a multiplayer game combining culture and speed. 
-						Players compete against each other on Wikipedia and have to scroll 
-						through the pages as quickly as possible to win.`},
-					{link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg.src  ,alt: "The Daily Wiki Adventure logo", width:37, height:37, description: `
-						Daily Wiki Adventure is a solo daily game where you must go from a 
-						Wikipedia start page to a target page as fast as you can with fewest amount of link possible.
-						Share your Daily Wiki Adventure epic now!`},
-					{link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg.src ,alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37, description: `
-						Six Degrees of Wiki adventure is a web app where you can request all shortests
-						paths between 2 Wikipedia page. and visualize them with their description and thumbnail.
-						It's inspired by the sixdegreesofwikipedia.com , but it's available in more language than
-						just english. `},
-					{link: "https://astro.build", img: AstroSvg.src ,alt: "Astro logo", width:1281, height:1280, description: `
-						I've made my website you see here with Astro.
-						Best score possible on Google Lighthouse!`},
+					{	link: "https://wikiadventu.re", img: WikiAdventureSvg.src,
+						alt: "The Wiki Adventure logo", width:52, height:32,
+						description: `
+							Wiki Adventure is a multiplayer game combining culture and speed. 
+							Players compete against each other on Wikipedia and have to scroll 
+							through the pages as quickly as possible to win.`
+					},
+					{	link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg.src,
+						alt: "The Daily Wiki Adventure logo", width:37, height:37,
+						description: `
+							Daily Wiki Adventure is a solo daily game where you must go from a 
+							Wikipedia start page to a target page as fast as you can with fewest amount of link possible.
+							Share your Daily Wiki Adventure epic now!`
+					},
+					{	link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg.src ,
+						alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37,
+						description: `
+							Six Degrees of Wiki adventure is a web app where you can request all shortests
+							paths between 2 Wikipedia page. and visualize them with their description and thumbnail.
+							It's inspired by the sixdegreesofwikipedia.com , but it's available in more language than
+							just english. `
+					},
+					{	link: "https://astro.build", img: AstroSvg.src,
+						alt: "Astro logo", width:1281, height:1280,
+						description: `
+							I've made my website you see here with Astro.
+							Best score possible on Google Lighthouse!`
+					},
+					{	link: "https://github.com/Sacramentix/chiseled-enchanting-table", img: ChiseledPng.src, 
+						alt: "Chiseled enchanting table minecraft mod logo", width: ChiseledPng.width, height: ChiseledPng.height,
+						description: `
+							I've made minecraft mod tht enhance enchanting experience.`
+					},
 				]}/>
 			</section>
+			<!-- <section projects-liked-section id="projects">
+				<h2>
+					Niche open-source project I like
+				</h2>
+				<ProjectCards projects={[
+					// Nos gestes Climat
+					// Tournesol app
+					//
+				]}/>
+			</section> -->
 			<section meetup-section>
 				<h2>Meetup</h2>
 				<p>
@@ -79,17 +107,15 @@ import CountryCard from '../components/art/CountryCard.astro';
 					<HexaGrid stacks={[
 						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
 						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
-						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
 						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
-						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
 						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
 						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
 						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
 						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-						{link:"https://astro.build", img: AstroSvg.src, alt:"Astro icon", name:"Astro"},
+						{link:"https://astro.build", icon: "logos:astro-icon", name:"Astro"},
+						{link:"https://hono.dev", icon: "logos:hono", name:"Hono"},
 						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
 						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
-						{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
 						{link:"https://github.com", icon:"mdi:github", name:"Github"},
 						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
 						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
@@ -98,7 +124,6 @@ import CountryCard from '../components/art/CountryCard.astro';
 						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
 						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
 						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
-						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
 						// {link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
 						{link:"https://surrealdb.com", icon:"logos:surrealdb-icon", name:"Surreal"},
 					]}/>
@@ -108,6 +133,11 @@ import CountryCard from '../components/art/CountryCard.astro';
 				<details>
 					<summary><h2>Stacks I know</h2></summary>
 					<HexaGrid stacks={[
+						{link:"https://cloud.google.com", icon:"logos:google-cloud-platform", name:"GCP"},
+						{link:"https://docs.aws.amazon.com", icon:"logos:aws", name:"AWS"},
+						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
+						{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
+						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
 						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
 						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
 						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
@@ -122,8 +152,10 @@ import CountryCard from '../components/art/CountryCard.astro';
 						{link:"https://www.php.net", icon:"logos:php", name:"PHP 8+"},
 						{link:"https://www.java.com", icon:"logos:java", name:"Java 21+"},
 						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
+						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
 						{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
 						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+						{link:"https://laravel.com", icon:"mdi:laravel", name:"Laravel"},
 						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
 					]}/>
 				</details>
@@ -147,6 +179,8 @@ import CountryCard from '../components/art/CountryCard.astro';
 						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
 						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
 						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
+						{link:"https://developer.hashicorp.com/terraform", icon:"logos:terraform-icon", name:"Terraform"},
+					]}/>
 					]}/>
 				</details>
 			</section>
