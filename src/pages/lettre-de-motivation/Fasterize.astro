@@ -1,0 +1,102 @@
+---
+import SideMenu from '../../layouts/SideMenu.astro';
+import crypto from 'crypto';
+import encryptedContentUrl from "../../encrypted-content/Fasterize.enc?url&inline";
+import QRCode from 'qrcode';
+
+export const prerender = false;
+
+function dataUrlToArrayBuffer(dataUrl:string) {
+    const base64StartIndex = dataUrl.indexOf('base64,');
+    if (base64StartIndex >= 0) {
+        const base64 = dataUrl.slice(base64StartIndex + 'base64,'.length);
+        const binaryString = atob(base64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (var i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes.buffer;
+    }
+    const str = decodeURIComponent(dataUrl.slice(dataUrl.indexOf(',') + 1));
+    const enc = new TextEncoder();
+    const bytes = enc.encode(str);
+    return bytes.buffer;
+}
+
+const encryptedContent = dataUrlToArrayBuffer(encryptedContentUrl);
+
+const rawKey = Astro.url.searchParams.get('key');
+const decodedKey = decodeURIComponent(rawKey);
+
+let decryptedContent = null;
+if (decodedKey) {
+  try {
+    const keyObject = Buffer.from(decodedKey, "hex").slice(0, 16); // Ensure key is 16 bytes
+    // @ts-ignore
+    const decipher = crypto.createDecipheriv(
+        'aes-128-cbc',
+        keyObject,
+        Buffer.alloc(16, 0),
+    );
+    const decryptedBuffer = Buffer.concat([
+        new Uint8Array(decipher.update(new Uint8Array(Buffer.from(encryptedContent)))),
+        new Uint8Array(decipher.final()),
+    ]);
+    decryptedContent = decryptedBuffer.toString('utf-8'); // Ensure encoding matches
+  } catch (error) {
+    console.error('Decryption error:', error);
+    return Astro.redirect('/404');
+  }
+} else {
+  return Astro.redirect('/404');
+}
+const qrCodeDataUrl = await QRCode.toDataURL(Astro.url.href);
+---
+
+<SideMenu>
+    {decryptedContent ? <pre>{decryptedContent}</pre> : null}
+    <div>
+        <p>Partage la lettre de motivation</p>
+        <img src={qrCodeDataUrl} alt="QR Code" />
+    </div>
+
+</SideMenu>
+
+<style is:global lang="scss">
+
+body {
+	margin: 0;
+	background: #000;
+	color: #ddd;
+	font-family: 'Source Code Pro', monospace;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr;
+	place-items: start center;
+	background: #000;
+    > pre {
+        font-size: 1.3em;
+        padding: 15px;
+        max-width: min(100%, 1200px);
+        white-space: pre-wrap;
+    }
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 100px;
+        > img {
+            border-radius: 10px;
+        }
+    }
+}
+
+</style>
