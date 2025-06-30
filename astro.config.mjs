@@ -4,9 +4,12 @@ import Icons from 'unplugin-icons/vite';
 
 import vue from "@astrojs/vue";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [sitemap(), vue()],
+
   vite: {
     ssr: {
       external: ["svgo"]
@@ -16,5 +19,7 @@ export default defineConfig({
         compiler: 'astro'
       })
     ]
-  }
+  },
+
+  adapter: netlify()
 });
