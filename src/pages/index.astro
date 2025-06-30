@@ -11,204 +11,204 @@ import ChiseledPng from "../assets/chiseled-enchanting-table.png";
 import Field from '../components/art/NeonParallax.astro';
 import HexaGrid from '../components/art/HexaGrid.astro';
 import ProjectCards from '../components/art/ProjectCards.astro';
-import SideMenu from '../layouts/SideMenu.astro';
+import SideMenuLayout from '../layouts/SideMenu.astro';
 import CardBundle from '../components/art/CardBundle.astro';
 import CountryCard from '../components/art/CountryCard.astro';
 // import Achievements from '../components/art/Achievements.astro';
 
 ---
-<SideMenu>
+<SideMenuLayout>
 	<Header/>
-		<Field>
-			<section intro-section title="introduction">
-				<h2>
-					<span>Full-stack</span>
-					<span>developer</span>
-				</h2>
-				<div>
-					<p>
-						I'm a web developer who is looking for a challenging quest to complete.
-						I love to build new ideas with the latest stack I've discovered.
-						Furthermore, I make my project has <b>accessible</b> as possible for everyone without discrimination.
-					</p>
-					<ul>
-						<li>I'm always following <b>latest technologie</b> and use them wisely to write clean code.</li>
-						<li>I'm an adept of the <b>Jamstack</b> and the Keep It Simple and Stupid principle.</li>
-						<li>I prefer<b> static</b> over dynamic typing.</li>
-						<li>I enjoy <b>functionnal paradigm</b> more than object-oriented.</li>
-						<li>I also like to take time to <b>improve the Developer Experience</b> for my team member...</li>
-						<li>... and improving the <b>Continous Integration and Deployment</b> process with my <b>Dev Ops skill</b>.</li>
-					</ul>
-				</div>
-			</section>
-			<section projects-section id="projects">
-				<h2>
-					Projects
-				</h2>
-				<ProjectCards projects={[
-					{	link: "https://wikiadventu.re", img: WikiAdventureSvg.src,
-						alt: "The Wiki Adventure logo", width:52, height:32,
-						description: `
-							Wiki Adventure is a multiplayer game combining culture and speed. 
-							Players compete against each other on Wikipedia and have to scroll 
-							through the pages as quickly as possible to win.`
-					},
-					{	link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg.src,
-						alt: "The Daily Wiki Adventure logo", width:37, height:37,
-						description: `
-							Daily Wiki Adventure is a solo daily game where you must go from a 
-							Wikipedia start page to a target page as fast as you can with fewest amount of link possible.
-							Share your Daily Wiki Adventure epic now!`
-					},
-					{	link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg.src ,
-						alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37,
-						description: `
-							Six Degrees of Wiki adventure is a web app where you can request all shortests
-							paths between 2 Wikipedia page. and visualize them with their description and thumbnail.
-							It's inspired by the sixdegreesofwikipedia.com , but it's available in more language than
-							just english. `
-					},
-					{	link: "https://astro.build", img: AstroSvg.src,
-						alt: "Astro logo", width:1281, height:1280,
-						description: `
-							I've made my website you see here with Astro.
-							Best score possible on Google Lighthouse!`
-					},
-					{	link: "https://github.com/Sacramentix/chiseled-enchanting-table", img: ChiseledPng.src, 
-						alt: "Chiseled enchanting table minecraft mod logo", width: ChiseledPng.width, height: ChiseledPng.height,
-						description: `
-							I've made minecraft mod tht enhance enchanting experience.`
-					},
-				]}/>
-			</section>
-			<!-- <section projects-liked-section id="projects">
-				<h2>
-					Niche open-source project I like
-				</h2>
-				<ProjectCards projects={[
-					// Nos gestes Climat
-					// Tournesol app
-					//
-				]}/>
-			</section> -->
-			<section meetup-section>
-				<h2>Meetup</h2>
+	<Field>
+		<section intro-section title="introduction">
+			<h2>
+				<span>Full-stack</span>
+				<span>developer</span>
+			</h2>
+			<div>
 				<p>
-					I enjoy attending meetup themed around Typescript and Vue js ecosystem.
-					Meaby you could meet me in Paris at
-					<a href="https://meetup.com/fr-FR/paris-typescript">Typescript <Icon meetup name="cib:meetup"></a>
-					 or 
-					<a href="https://meetup.com/fr-FR/vuejs-paris">Vue <Icon meetup name="cib:meetup"></a>.
+					I'm a web developer who is looking for a challenging quest to complete.
+					I love to build new ideas with the latest stack I've discovered.
+					Furthermore, I make my project has <b>accessible</b> as possible for everyone without discrimination.
 				</p>
-			</section>
-			<section stacks-section loved-stacks id="stacks">
-				<details open>
-					<summary><h2>Stacks I love</h2></summary>
-					<HexaGrid stacks={[
-						{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
-						{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
-						{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
-						{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
-						{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
-						{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
-						{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
-						{link:"https://astro.build", icon: "logos:astro-icon", name:"Astro"},
-						{link:"https://hono.dev", icon: "logos:hono", name:"Hono"},
-						{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
-						{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
-						{link:"https://github.com", icon:"mdi:github", name:"Github"},
-						{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
-						{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
-						{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
-						{link:"http://fly.io", icon:"logos:fly-icon", name:"fly.io"},
-						{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
-						{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
-						{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
-						// {link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
-						{link:"https://surrealdb.com", icon:"logos:surrealdb-icon", name:"Surreal"},
-					]}/>
-				</details>
-			</section>
-			<section stacks-section known-stacks>
-				<details>
-					<summary><h2>Stacks I know</h2></summary>
-					<HexaGrid stacks={[
-						{link:"https://cloud.google.com", icon:"logos:google-cloud-platform", name:"GCP"},
-						{link:"https://docs.aws.amazon.com", icon:"logos:aws", name:"AWS"},
-						{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
-						{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
-						{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
-						{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
-						{link:"https://reactjs.org", icon:"logos:react", name:"React"},
-						{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
-						{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
-						{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
-						{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
-						{link:"https://www.python.org", icon:"logos:python", name:"Python"},
-						{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
-						{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
-						{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
-						{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
-						{link:"https://www.php.net", icon:"logos:php", name:"PHP 8+"},
-						{link:"https://www.java.com", icon:"logos:java", name:"Java 21+"},
-						{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
-						{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
-						{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
-						{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
-						{link:"https://laravel.com", icon:"mdi:laravel", name:"Laravel"},
-						{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
-					]}/>
-				</details>
-			</section>
-			<section stacks-section hated-stacks>
-				<details>
-					<summary><h2>Stacks I hate</h2></summary>
-					<HexaGrid stacks={[
-						{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Vanilla JS"},
-						{link:"http://phpsadness.com", icon:"logos:php", name:"PHP 7"},
-						{link:"https://www.java.com", icon:"logos:java", name:"Java 8"},
-						{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
-						{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
-					]}/>
-				</details>
-			</section>
-			<section stacks-section stacks-to-learn>
-				<details>
-					<summary><h2>Stacks I want to learn</h2></summary>
-					<HexaGrid stacks={[
-						{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
-						{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
-						{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
-						{link:"https://developer.hashicorp.com/terraform", icon:"logos:terraform-icon", name:"Terraform"},
-					]}/>
-					]}/>
-				</details>
-			</section>
-			<section hobby-section id="hobby">
-				<h2>Hobby</h2>
-				<CardBundle />
-			</section>
-			<section trip-section id="trip">
-				<h2>Trip</h2>
-				<div>
-					<CountryCard name="france"/>
-					<CountryCard name="germany"/>
-					<CountryCard name="belgium"/>
-					<CountryCard name="netherlands"/>
-					<CountryCard name="denmark"/>
-					<CountryCard name="switzerland"/>
-					<CountryCard name="norway"/>
-					<CountryCard name="finland"/>
-					<CountryCard name="czechia"/>
-					<CountryCard name="austria"/>
-					<CountryCard name="slovakia"/>
-					<CountryCard name="poland"/>
-					<CountryCard name="scotland"/>
-					<CountryCard name="ireland"/>
-				</div>
-			</section>
-			<!-- <Achievements /> -->
-		</Field>
+				<ul>
+					<li>I'm always following <b>latest technologie</b> and use them wisely to write clean code.</li>
+					<li>I'm an adept of the <b>Jamstack</b> and the Keep It Simple and Stupid principle.</li>
+					<li>I prefer<b> static</b> over dynamic typing.</li>
+					<li>I enjoy <b>functionnal paradigm</b> more than object-oriented.</li>
+					<li>I also like to take time to <b>improve the Developer Experience</b> for my team member...</li>
+					<li>... and improving the <b>Continous Integration and Deployment</b> process with my <b>Dev Ops skill</b>.</li>
+				</ul>
+			</div>
+		</section>
+		<section projects-section id="projects">
+			<h2>
+				Projects
+			</h2>
+			<ProjectCards projects={[
+				{	link: "https://wikiadventu.re", img: WikiAdventureSvg.src,
+					alt: "The Wiki Adventure logo", width:52, height:32,
+					description: `
+						Wiki Adventure is a multiplayer game combining culture and speed. 
+						Players compete against each other on Wikipedia and have to scroll 
+						through the pages as quickly as possible to win.`
+				},
+				{	link: "https://daily.wikiadventu.re", img: DailyWikiAdventureSvg.src,
+					alt: "The Daily Wiki Adventure logo", width:37, height:37,
+					description: `
+						Daily Wiki Adventure is a solo daily game where you must go from a 
+						Wikipedia start page to a target page as fast as you can with fewest amount of link possible.
+						Share your Daily Wiki Adventure epic now!`
+				},
+				{	link: "https://six-degrees-of-wiki-adventure.netlify.app", img: SixDegreeOfWikiAdventurSvg.src ,
+					alt: "The Six Degrees of Wiki Adventure logo", width:37, height:37,
+					description: `
+						Six Degrees of Wiki adventure is a web app where you can request all shortests
+						paths between 2 Wikipedia page. and visualize them with their description and thumbnail.
+						It's inspired by the sixdegreesofwikipedia.com , but it's available in more language than
+						just english. I recently recoded the graph all shortest path algo in Rust for ultimate performance.`
+				},
+				{	link: "https://astro.build", img: AstroSvg.src,
+					alt: "Astro logo", width:1281, height:1280,
+					description: `
+						I've made my website you see here with Astro.
+						Best score possible on Google Lighthouse!`
+				},
+				{	link: "https://modrinth.com/mod/chiseled-enchanting-table", img: ChiseledPng.src, 
+					alt: "Chiseled enchanting table minecraft mod logo", width: ChiseledPng.width, height: ChiseledPng.height,
+					description: `
+						I've made minecraft mod that enhance enchanting experience.
+						It's availaible on Modrinth for version 1.21.1-1.21.6`
+				},
+			]}/>
+		</section>
+		<!-- <section projects-liked-section id="projects">
+			<h2>
+				Niche open-source project I like
+			</h2>
+			<ProjectCards projects={[
+				// Nos gestes Climat
+				// Tournesol app
+				//
+			]}/>
+		</section> -->
+		<section meetup-section>
+			<h2>Meetup</h2>
+			<p>
+				I enjoy attending meetup themed around Typescript and Vue js ecosystem.
+				Meaby you could meet me in Paris at
+				<a href="https://meetup.com/fr-FR/paris-typescript">Typescript <Icon meetup name="cib:meetup"></a>
+					or 
+				<a href="https://meetup.com/fr-FR/vuejs-paris">Vue <Icon meetup name="cib:meetup"></a>.
+			</p>
+		</section>
+		<section stacks-section loved-stacks id="stacks">
+			<details open>
+				<summary><h2>Stacks I love</h2></summary>
+				<HexaGrid stacks={[
+					{link:"https://vitejs.dev", icon:"logos:vitejs", name:"Vite"},
+					{link:"https://vuejs.org", icon:"logos:vue", name:"Vue"},
+					{link:"https://nodejs.org", icon:"logos:nodejs-icon", name:"Node"},
+					{link:"https://www.typescriptlang.org", icon:"logos:typescript-icon", name:"Typescript"},
+					{link:"https://sass-lang.com", icon:"logos:sass", name:"SASS"},
+					{link:"https://developer.mozilla.org/en-US/docs/Web/CSS", icon:"vscode-icons:file-type-css", name:"CSS"},
+					{link:"https://haxe.org", icon:"logos:haxe", name:"Haxe"},
+					{link:"https://astro.build", icon: "logos:astro-icon", name:"Astro"},
+					{link:"https://hono.dev", icon: "logos:hono", name:"Hono"},
+					{link:"https://nuxtjs.org", icon:"logos:nuxt-icon", name:"Nuxt js"},
+					{link:"https://redis.io", icon:"logos:redis", name:"Redis"},
+					{link:"https://github.com", icon:"mdi:github", name:"Github"},
+					{link:"https://git-scm.com", icon:"logos:git-icon", name:"Git"},
+					{link:"https://www.docker.com", icon:"logos:docker-icon", name:"Docker"},
+					{link:"https://code.visualstudio.com", icon:"logos:visual-studio-code", name:"VS Code"},
+					{link:"http://fly.io", icon:"logos:fly-icon", name:"fly.io"},
+					{link:"https://www.netlify.com", icon:"logos:netlify", name:"Netlify"},
+					{link:"https://developer.chrome.com/docs/devtools", icon:"logos:chrome", name:"Devtools"},
+					{link:"https://jamstack.org", icon:"logos:jamstack-icon", name:"Jamstacks"},
+					// {link:"https://ory.sh", icon:"logos:kubernetes", name:"Ory"},
+					{link:"https://surrealdb.com", icon:"logos:surrealdb-icon", name:"Surreal"},
+				]}/>
+			</details>
+		</section>
+		<section stacks-section known-stacks>
+			<details>
+				<summary><h2>Stacks I know</h2></summary>
+				<HexaGrid stacks={[
+					{link:"https://cloud.google.com", icon:"logos:google-cloud-platform", name:"GCP"},
+					{link:"https://docs.aws.amazon.com", icon:"logos:aws", name:"AWS"},
+					{link:"https://quasar.dev", icon:"vscode-icons:file-type-quasar", name:"Quasar"},
+					{link:"https://supabase.com", icon:"logos:supabase-icon", name:"Supabase"},
+					{link:"https://www.fastify.io", icon:"logos:fastify-icon", name:"Fastify"},
+					{link:"https://www.rust-lang.org", icon:"vscode-icons:file-type-rust", name:"Rust"},
+					{link:"https://reactjs.org", icon:"logos:react", name:"React"},
+					{link:"https://graphql.org", icon:"logos:graphql", name:"GraphQL"},
+					{link:"https://www.prisma.io", icon:"simple-icons:prisma", name:"Prisma"},
+					{link:"https://nextjs.org", icon:"simple-icons:nextdotjs", name:"Next js"},
+					{link:"https://about.gitlab.com", icon:"logos:gitlab", name:"Gitlab"},
+					{link:"https://www.python.org", icon:"logos:python", name:"Python"},
+					{link:"https://go.dev", icon:"vscode-icons:file-type-go-gopher", name:"Golang"},
+					{link:"https://www.sqlite.org", icon:"vscode-icons:file-type-sqlite", name:"SQL"},
+					{link:"https://www.mongodb.com", icon:"vscode-icons:file-type-mongo", name:"Mongo"},
+					{link:"https://www.arangodb.com", icon:"simple-icons:arangodb", name:"Arango"},
+					{link:"https://www.php.net", icon:"logos:php", name:"PHP 8+"},
+					{link:"https://www.java.com", icon:"logos:java", name:"Java 21+"},
+					{link:"https://expressjs.com", icon:"simple-icons:express", name:"Express"},
+					{link:"https://jwt.io", icon:"logos:jwt-icon", name:"JWT"},
+					{link:"https://webpack.js.org", icon:"logos:webpack", name:"Webpack"},
+					{link:"https://symfony.com", icon:"mdi:symfony", name:"Symfony"},
+					{link:"https://laravel.com", icon:"mdi:laravel", name:"Laravel"},
+					{link:"https://spring.io", icon:"logos:spring-icon", name:"Spring"},
+				]}/>
+			</details>
+		</section>
+		<section stacks-section hated-stacks>
+			<details>
+				<summary><h2>Stacks I hate</h2></summary>
+				<HexaGrid stacks={[
+					{link:"https://developer.mozilla.org/en-US/docs/Web/JavaScript", icon:"logos:javascript", name:"Vanilla JS"},
+					{link:"http://phpsadness.com", icon:"logos:php", name:"PHP 7"},
+					{link:"https://www.java.com", icon:"logos:java", name:"Java 8"},
+					{link:"https://jquery.com", icon:"simple-icons:jquery", name:"jQuery"},
+					{link:"https://wordpress.com", icon:"simple-icons:wordpress", name:"Wordpress"},
+				]}/>
+			</details>
+		</section>
+		<section stacks-section stacks-to-learn>
+			<details>
+				<summary><h2>Stacks I want to learn</h2></summary>
+				<HexaGrid stacks={[
+					{link:"https://svelte.dev", icon:"logos:svelte-icon", name:"Svelte"},
+					{link:"https://nestjs.com", icon:"logos:nestjs", name:"Nest js"},
+					{link:"https://kubernetes.io", icon:"logos:kubernetes", name:"Kubernetes"},
+					{link:"https://developer.hashicorp.com/terraform", icon:"logos:terraform-icon", name:"Terraform"},
+				]}/>
+			</details>
+		</section>
+		<section hobby-section id="hobby">
+			<h2>Hobby</h2>
+			<CardBundle />
+		</section>
+		<section trip-section id="trip">
+			<h2>Trip</h2>
+			<div>
+				<CountryCard name="france"/>
+				<CountryCard name="germany"/>
+				<CountryCard name="belgium"/>
+				<CountryCard name="netherlands"/>
+				<CountryCard name="denmark"/>
+				<CountryCard name="switzerland"/>
+				<CountryCard name="norway"/>
+				<CountryCard name="finland"/>
+				<CountryCard name="czechia"/>
+				<CountryCard name="austria"/>
+				<CountryCard name="slovakia"/>
+				<CountryCard name="poland"/>
+				<CountryCard name="scotland"/>
+				<CountryCard name="ireland"/>
+			</div>
+		</section>
+		<!-- <Achievements /> -->
+	</Field>
 </SideMenu>
 
 
