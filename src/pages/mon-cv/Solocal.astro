@@ -1,0 +1,373 @@
+---
+import { Icon } from 'astro-iconify';
+import QrCode from '../../assets/qr-code-cv.png';
+---
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Sacramentix CV - Solocal</title>
+	</head>
+	<body>
+        <main>
+            <div cv-side>
+                <p for-ats>
+                    Si vous lisez ceci c'est que vous lisez mon CV au format txt que votre ATS à générer à partir du format PDF.
+                </p>
+                <img cv-logo src="/favicon.svg" width="500" height="711" alt=" fake 3d S logo">
+                <h1>Sacramentix<br>alias<br>Benjamin Gilloury</h1>
+                <div cv-location>
+                    <h2>Adresse</h2>
+                    <p>Clamart, 92140</p>
+                </div>
+                <div cv-links>
+                    <h2>Liens</h2>
+                    <a href="https://github.com/Sacramentix"><Icon name="mdi:github"/>github.com/Sacramentix</a>
+                    <a href="https://sacramentix.fr"><Icon name="pepicons-pop:internet"/>sacramentix.fr</a>
+                </div>
+                <address cv-contact>
+                    <h2>Contact</h2>
+                    <a href="mailto:benjamin.gilloury@gmail.com"><Icon name="mdi:email"/>benjamin.gilloury@gmail.com</a>
+                    <a href="tel:+33783961868"><Icon name="mdi:phone"/>+33 7 83 96 18 68</a>
+                </address>
+                <section cv-who-i-am>
+                    <h2>Qui suis-je?</h2>
+                    <p>
+                        Je suis un <strong>développeur full-stack</strong> passionné depuis plus de 4 ans, avec une
+                        expertise backend en <strong>Node.js</strong> et <strong>TypeScript</strong>.
+                        J'ai une solide culture <strong>DevOps</strong> et une expérience en leadership technique.
+                        Mes valeurs sont sobriété, esprit critique et savoir libre.
+                    </p>
+                </section>
+                <section cv-what-i-want>
+                    <h2>Ce que je recherche ?</h2>
+                    <p>
+                        Je recherche un poste de développeur confirmé pour contribuer à des applications
+                        à forte valeur ajoutée dans un environnement Agile et DevOps.
+                        Ouvert à un CDI sur Bordeaux / Le Haillan en hybride.
+                    </p>
+                </section>
+                <img cv-qr-code src={QrCode.src} width="21" height="21" alt="QR code to this page">
+            </div>
+            <div cv-content>
+                <section>
+                    <h2>Motivation pour ce poste</h2>
+                    <p>
+                        Je cible ce poste au sein de la squad Référentiel Contenu car les missions
+                        correspondent exactement à mon cœur de métier : concevoir et maintenir des
+                        applications dédiées à la <strong>collecte</strong>, la <strong>normalisation</strong>
+                        et la <strong>diffusion</strong> de données professionnelles à grande échelle.
+                    </p>
+                    <p>
+                        Chez Pappers, je développe des microservices Node.js / Express / TypeScript
+                        traitant des volumes massifs de données d'entreprises françaises. J'ai contribué
+                        à l'intégration de nouvelles sources de données, à la migration vers TypeScript
+                        strict, et à la mise en place de pipelines CI/CD (GitHub Actions, Docker, Ansible).
+                        Cette expérience m'a donné une solide culture DevOps et une rigueur sur la qualité
+                        logicielle.
+                    </p>
+                    <p>
+                        Je connais d'ailleurs vos données de très près — mais c'est une histoire
+                        que je préfère raconter en entretien.
+                    </p>
+                    <p>
+                        Mon expérience en tant que Lead dev chez Naostre m'a permis d'accompagner
+                        une équipe dans sa montée en compétences, de concevoir l'architecture technique
+                        d'une application complète et de piloter les choix d'implémentation — des
+                        compétences directement transférables à l'accompagnement de l'équipe et à la
+                        conception technique attendues sur ce poste.
+                    </p>
+                </section>
+                <section>
+                    <h2><Icon name="icon-park-solid:experiment"/>Expériences</h2>
+                    <div>
+                        <h3>Pappers</h3>
+                        <h4>Développeur full-stack | actuel | 2 ans</h4>
+                        <p>
+                            Développement backend en Node.js, Express et TypeScript sur une plateforme de
+                            microservices traitant des volumes massifs de données d'entreprises.
+                            Intégration de nouvelles sources de données (propriétés intellectuelles,
+                            sites web) avec une attention particulière à la performance et à la scalabilité
+                            des APIs.
+                        </p>
+                        <p>
+                            Développement de crawlers pour la collecte automatisée de données publiques
+                            et l'alimentation de la base de données. Normalisation et structuration des
+                            contenus professionnels collectés.
+                        </p>
+                        <p>
+                            Migration progressive vers TypeScript strict, typage rigoureux des APIs et des
+                            modèles de données. Participation active aux revues de code croisées et
+                            montée en compétence de l'équipe sur les bonnes pratiques TypeScript.
+                        </p>
+                        <p>
+                            Contribution à l'infrastructure : CI/CD avec GitHub Actions (tests unitaires,
+                            non-régression), dockerisation des services, déploiement continu via Ansible.
+                            Culture DevOps et Git avancé (workflows collaboratifs).
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Naostre</h3>
+                        <h4>Lead dev full-stack | 1 an</h4>
+                        <p>
+                            Lead technique sur une application web complète : backend Node.js / Fastify / MongoDB
+                            et frontend Vue.js / Quasar. Conception de l'architecture technique,
+                            cadrage des choix d'implémentation et accompagnement de l'équipe de développement.
+                        </p>
+                        <p>
+                            Projet réalisé avec un client (Clear Channel) sur 1 an, avec des échanges réguliers
+                            sur les spécifications fonctionnelles, le pilotage technique et la structuration
+                            de l'approche d'implémentation. Montée en compétence des développeurs sur les
+                            bonnes pratiques d'architecture et de qualité de code.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Aguaro</h3>
+                        <h4>Développeur full-stack | 1 an</h4>
+                        <p>
+                            Conception de widgets sur la plateforme ServiceNow pour l'application My IT Footprint.
+                            Intégration de données complexes en tableaux de bord et visualisations interactives
+                            avec Node.js, TypeScript et Python.
+                        </p>
+                        <p>
+                            Automatisation de pipelines de données à partir de profils matériel au format PDF.
+                            Conception d'APIs et intégration de services tiers dans un environnement
+                            exigeant en disponibilité.
+                            <i no-print easter-egg>Hey vous avez lu mon CV jusqu'ici ? Voici une récompense sur ce <a href="https://hr-medals.pages.dev/?new">lien</a>.</i>
+                        </p>
+                    </div>
+                </section>
+                <section cv-education>
+                    <h2><Icon name="ic:round-school"/>Formations</h2>
+                    <ul>
+                        <li>
+                            <h3>Licence Pro Métier de l'Informatique: Applications Réparties</h3>
+                            <b>Iut de Nantes</b>
+                        </li>
+                        <li>
+                            <h3>BTS services informatiques aux organisations</h3>
+                            <b>Lycée la Colinière, Nantes</b>
+                        </li>
+                        <li>
+                            <h3>Bac Scientifique</h3>
+                            <b>Lycée Alcide d'orbigny, Bouaye</b>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <button no-print save-as-pdf onclick="window.print()">Save as pdf</button>
+    </body>
+</html>
+
+<style lang="scss" is:global>
+[astro-icon] {
+	width: 1.5em;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #000;
+	padding: 25px 0;
+}
+h1, h2, h3, h4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1ch;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.8em;
+}
+
+h2 {
+	text-align: center;
+	font-size: 1.4em;
+	margin: 0.5em;
+	color: hsl(175, 100%, 50%);
+}
+
+h3 {
+	text-align: center;
+	margin: 0.25em;
+	color: hsl(175, 60%, 50%);
+}
+
+h4 {
+	text-align: center;
+	margin: 0.15em;
+	color: hsl(175, 30%, 50%);
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+ul {
+	margin: 0.25em;
+}
+
+p {
+    margin: 1ch 0;
+}
+
+
+main {
+	margin: 0 auto;
+	max-width: 1000px;
+	aspect-ratio: 8.27/11.67;
+	border-radius: 5px;
+	background: #222;
+	color: #eee;
+	font-family: 'Source Code Pro', monospace;
+	display: grid;
+	padding: 5px;
+	gap: 5px;
+	grid-template-areas:
+	"s c c";
+	grid-template-columns: .9fr 1fr 1fr;
+	// set the font size to 16 pixel when the screen is at least 1000px with a padding of 5px
+	font-size: min(calc((100vw - (5px * 2)) / (1000 / 16)), 16px);
+	box-shadow: 0 0 5px cyan;
+}
+
+[cv-side] {
+	grid-area: s;
+	// background: #fff3;
+	border-right: 1px solid #ddd;
+	// border-radius: 5px;
+	padding: 1ch;
+}
+[cv-content] {
+	grid-area: c;
+	// background: #fff3;
+	padding: 0 1ch;
+}
+
+[cv-logo] {
+	grid-area: i;
+	// background: #fff3;
+	border-radius: 5px;
+	max-width: 100%;
+	max-height: 20em;
+}
+[cv-links] {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 1ch;
+	}
+}
+[cv-contact] {
+	a {
+		display: flex;
+		align-items: center;
+		gap: 1ch;
+	}
+}
+
+[cv-stacks] {
+	border-radius: 5px;
+	
+	ul {
+		column-count: 2;
+	}
+}
+
+[cv-education] {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		gap: 2ch;
+	}
+	li {
+		max-width: 35%;
+	}
+}
+
+[cv-who-i-am] {
+    strong {
+        font-size: 1.1em;
+        font-weight: 900;
+        color: hsl(175, 80%, 50%);
+    }
+}
+
+[cv-qr-code] {
+    border-radius: 5px;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    background: #fff;
+
+}
+
+[save-as-pdf] {
+
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	background: rgb(246, 82, 56);
+	color: #fff;
+	font-size: 1.5em;
+	border: none;
+	border-radius: 25px;
+	padding: 15px;
+	cursor: pointer;
+	transition: transform ease-in-out .1s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+[easter-egg] {
+    margin: 0;
+    display: inline;
+    font-size: .7em;
+    opacity: .6;
+    > a {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+
+[for-ats] {
+	color: #222;
+	font-size: 1px;
+	padding: 0;
+	margin: 0;
+}
+
+// CSS for the prit layout
+@page { size: auto;  margin: 0mm; }
+@media print {
+	main {
+		padding: 0;
+		margin: 0;
+        background: #fff;
+        color: #000;
+		// font-size: 12px;
+	}
+    h1, h2, h3, h4, h5, strong {
+        filter: brightness(0.6);
+    }
+	body {
+		padding: 0;
+	}
+   	[no-print] {
+		display: none!important
+	}
+}
+</style>
