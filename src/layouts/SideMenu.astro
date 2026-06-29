@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-iconify';
+import Icon from '../components/Icon.astro';
 import Nav from "../components/Nav.astro";
 
 const { title = 'Sacramentix portfolio', description = 'The personal site of Sacramentix' } = Astro.props;
@@ -28,7 +28,7 @@ const { title = 'Sacramentix portfolio', description = 'The personal site of Sac
 	</body>
 </html>
 
-<style lang="scss" is:global>
+<style is:global>
 html {
 	overflow: hidden;
 }

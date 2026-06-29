@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-iconify';
+import Icon from '../../components/Icon.astro';
 import QrCode from '../../assets/qr-code-cv.png';
 ---
 <html lang="fr">
@@ -137,7 +137,7 @@ import QrCode from '../../assets/qr-code-cv.png';
     </body>
 </html>
 
-<style lang="scss" is:global>
+<style  is:global>
 [astro-icon] {
 	width: 1.5em;
 }
@@ -209,27 +209,27 @@ main {
 	grid-template-areas:
 	"s c c";
 	grid-template-columns: .9fr 1fr 1fr;
-	// set the font size to 16 pixel when the screen is at least 1000px with a padding of 5px
+	/*/* set the font size to 16 pixel when the screen is at least 1000px with a padding of 5px */
 	font-size: min(calc((100vw - (5px * 2)) / (1000 / 16)), 16px);
 	box-shadow: 0 0 5px cyan;
 }
 
 [cv-side] {
 	grid-area: s;
-	// background: #fff3;
+	/* background: #fff3; */
 	border-right: 1px solid #ddd;
-	// border-radius: 5px;
+	/* border-radius: 5px; */
 	padding: 1ch;
 }
 [cv-content] {
 	grid-area: c;
-	// background: #fff3;
+	/* background: #fff3; */
 	padding: 0 1ch;
 }
 
 [cv-logo] {
 	grid-area: i;
-	// background: #fff3;
+	/* background: #fff3; */
 	border-radius: 5px;
 	max-width: 100%;
 	max-height: 20em;
@@ -325,7 +325,7 @@ main {
 	margin: 0;
 }
 
-// CSS for the prit layout
+/* CSS for the prit layout */
 @page { size: auto;  margin: 0mm; }
 @media print {
 	main {
@@ -333,7 +333,7 @@ main {
 		margin: 0;
         background: #fff;
         color: #000;
-		// font-size: 12px;
+		/* font-size: 12px; */
 	}
     h1, h2, h3, h4, h5, strong {
         filter: brightness(0.6);

@@ -5,7 +5,7 @@ import FrechiUrl from "../assets/frechi.svg";
 
 ---
 
-<style lang="scss" is:global>
+<style is:global>
 h1 {
     text-align: center;
 }
@@ -16,7 +16,7 @@ h1 {
         Bazar
     </h1>
     <ProjectCards projects={[
-        {link: "https://frechi.netlify.app", img: FrechiUrl ,alt: "Frechi", width:1281, height:1280, description: `
+        {link: "https://frechi.netlify.app", img: FrechiUrl.src, alt: "Frechi", width:1281, height:1280, description: `
             I've made a math game based on a french TV show "Des chiffres et des lettres".
             `},
         {link: "#", img: "" ,alt: "Ludum dare", width:1281, height:1280, description: `
@@ -34,10 +34,6 @@ h1 {
             `},
         {link: "#", img: "" ,alt: "Old portfolio", width:1281, height:1280, description: `
             My old portfolio made with quasar.`},
-        {link: "#", img: "" ,alt: "Primal Zerg logo", width:1281, height:1280, description: `
-            I've plan to make a Terraria mod based on Starcraft Zerg. With a zerg invasion 
-            That become stronger and stronger as you progress.
-        `},
         {link: "https://six-degrees-of-wiki-adventure.netlify.app", img: "" ,alt: "Six degrees of wikiadventure", width:1281, height:1280, description: `
             Coming Soon, an API and a website to find all shortest path between 2 wikipedia
             page using Arango DB.

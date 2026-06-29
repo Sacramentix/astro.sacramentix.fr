@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-iconify';
+import Icon from '../components/Icon.astro';
 import Header from '../components/Header.astro';
 
 import WikiAdventureSvg from "../assets/wikiAdventure.svg";
@@ -97,9 +97,9 @@ import CountryCard from '../components/art/CountryCard.astro';
 			<p>
 				I enjoy attending meetup themed around Typescript and Vue js ecosystem.
 				Maybe you could meet me in Paris at
-				<a href="https://meetup.com/fr-FR/paris-typescript">Typescript <Icon meetup name="cib:meetup"></a>
+				<a href="https://meetup.com/fr-FR/paris-typescript">Typescript <Icon meetup name="cib:meetup" /></a>
 					or 
-				<a href="https://meetup.com/fr-FR/vuejs-paris">Vue <Icon meetup name="cib:meetup"></a>.
+				<a href="https://meetup.com/fr-FR/vuejs-paris">Vue <Icon meetup name="cib:meetup" /></a>.
 			</p>
 		</section>
 		<section stacks-section loved-stacks id="stacks">
@@ -209,10 +209,10 @@ import CountryCard from '../components/art/CountryCard.astro';
 		</section>
 		<!-- <Achievements /> -->
 	</Field>
-</SideMenu>
+</SideMenuLayout>
 
 
-<style is:global lang="scss">
+<style is:global>
 
 body {
 	margin: 0;
@@ -257,8 +257,8 @@ main {
 	min-height: 500px;
 	display: flex;
 	flex-wrap: wrap;
-	// justify-content: center;
-	// align-items: center;
+	/* justify-content: center; */
+	/* align-items: center; */
 	padding: max(10vw, 25px);
 	gap: 25px;
 	> h2 {
@@ -343,8 +343,8 @@ main {
 
 [known-stacks] {
 	--neon-rgb: 73, 242, 39;
-	// --gradient-from: hsl(130, 10%, 20%);
-	// --gradient-to: hsl(130, 50%, 25%);
+	/* --gradient-from: hsl(130, 10%, 20%); */
+	/* --gradient-to: hsl(130, 50%, 25%); */
 }
 
 [hated-stacks] {

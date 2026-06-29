@@ -1,0 +1,64 @@
+---
+/**
+ * Drop-in replacement for astro-iconify's Icon component.
+ * Fetches SVGs from the Iconify CDN at SSR time.
+ * No CJS dependencies - works with Cloudflare Workers.
+ */
+
+interface Props {
+  name: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { name, class: className, ...restProps } = Astro.props as Props;
+
+if (!name) {
+  throw new Error("<Icon> requires a name!");
+}
+
+const url = `https://api.iconify.design/${name.replace(":", "/")}.svg`;
+
+let innerHTML = "";
+let defaultProps: Record<string, string> = {};
+
+try {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch icon "${name}": ${response.status}`);
+  }
+  const svgText = await response.text();
+
+  // Extract attributes from the SVG tag
+  const tagMatch = svgText.match(/<svg([^>]*)>/);
+  if (tagMatch) {
+    const attrs = tagMatch[1];
+    const viewBoxMatch = attrs.match(/viewBox="([^"]+)"/);
+    if (viewBoxMatch) defaultProps.viewBox = viewBoxMatch[1];
+    const widthMatch = attrs.match(/width="([^"]+)"/);
+    if (widthMatch) defaultProps.width = widthMatch[1];
+    const heightMatch = attrs.match(/height="([^"]+)"/);
+    if (heightMatch) defaultProps.height = heightMatch[1];
+  }
+
+  // Extract inner SVG content (everything between <svg> and </svg>)
+  const innerMatch = svgText.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
+  innerHTML = innerMatch ? innerMatch[1].trim() : "";
+} catch (e) {
+  console.error(`[Icon] Failed to load "${name}":`, e);
+  // Fallback icon (empty rect)
+  innerHTML =
+    '<rect width="24" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />';
+  defaultProps = {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor",
+    "aria-hidden": "true",
+  };
+}
+
+const svgProps = { ...defaultProps, ...restProps };
+if (className) svgProps.class = className;
+---
+<svg {...svgProps} astro-icon={name} set:html={innerHTML} />

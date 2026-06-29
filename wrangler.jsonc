@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "astro-sacramentix",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    {
+      "binding": "VISITORS_KV",
+      "id": "VISITORS_KV_NAMESPACE_ID",
+      "preview_id": "VISITORS_KV_PREVIEW_ID"
+    }
+  ]
+}

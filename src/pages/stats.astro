@@ -1,0 +1,215 @@
+---
+import { env } from "cloudflare:workers";
+
+// Pages that are tracked
+const TRACKED_PAGES = ["/", "/cv", "/ressources"];
+// We'll also discover /mon-cv/* pages from KV
+
+// Generate last 7 days of dates
+function getLast7Days(): string[] {
+  const days: string[] = [];
+  for (let i = 1; i <= 7; i++) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    days.push(d.toISOString().split("T")[0]);
+  }
+  return days;
+}
+
+const days = getLast7Days();
+
+// Build visitor data: { page: { date: count } }
+const visitorData: Record<string, Record<string, number>> = {};
+
+const kv: KVNamespace | undefined = env?.VISITORS_KV;
+
+if (kv) {
+  // Collect all keys matching visits: prefix
+  const listResult = await kv.list({ prefix: "visits:" });
+  
+  for (const key of listResult.keys) {
+    // key.name format: "visits:YYYY-MM-DD:/path"
+    const parts = key.name.split(":");
+    if (parts.length >= 3) {
+      const date = parts[1];
+      const page = parts.slice(2).join(":");
+      
+      if (!visitorData[page]) {
+        visitorData[page] = {};
+      }
+      
+      const val = await kv.get(key.name);
+      if (val) {
+        visitorData[page][date] = parseInt(val, 10);
+      }
+    }
+  }
+}
+
+// Sort pages: tracked static pages first, then mon-cv/* pages alphabetically
+const allPages = Object.keys(visitorData);
+const monCvPages = allPages.filter(p => p.startsWith("/mon-cv/")).sort();
+const knownPages = TRACKED_PAGES.filter(p => allPages.includes(p));
+// Add any other pages not in TRACKED_PAGES or mon-cv
+const otherPages = allPages.filter(p => !TRACKED_PAGES.includes(p) && !p.startsWith("/mon-cv/")).sort();
+const sortedPages = [...knownPages, ...monCvPages, ...otherPages];
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr + "T12:00:00Z");
+  const day = d.getDate().toString().padStart(2, "0");
+  const month = (d.getMonth() + 1).toString().padStart(2, "0");
+  return `${day}/${month}`;
+}
+
+function getDayName(dateStr: string): string {
+  const d = new Date(dateStr + "T12:00:00Z");
+  return d.toLocaleDateString("en-US", { weekday: "short" });
+}
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visitor Stats - Sacramentix</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Source Code Pro', monospace;
+        background: #000;
+        color: #ddd;
+        padding: 2rem;
+        min-height: 100vh;
+      }
+      h1 {
+        text-align: center;
+        font-size: calc(1.5em + 2vmin);
+        margin-bottom: 2rem;
+        color: #0bc3c3;
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: #0bc3c3;
+        text-decoration: none;
+        font-size: 0.9em;
+      }
+      .back-link:hover { text-decoration: underline; }
+      .stats-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85em;
+      }
+      th, td {
+        padding: 0.6em 0.8em;
+        text-align: center;
+        border: 1px solid #333;
+      }
+      th {
+        background: #111;
+        color: #0bc3c3;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+      }
+      th.page-header {
+        text-align: left;
+        min-width: 180px;
+      }
+      td.page-name {
+        text-align: left;
+        color: #fff;
+        font-weight: bold;
+      }
+      tr:nth-child(even) {
+        background: #0a0a0a;
+      }
+      tr:hover {
+        background: #111;
+      }
+      td.has-data {
+        color: #19ab19;
+      }
+      td.zero {
+        color: #555;
+      }
+      .total-row {
+        background: #111 !important;
+        font-weight: bold;
+      }
+      .total-row td {
+        color: #fab32e;
+        border-top: 2px solid #fab32e;
+      }
+      .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: #666;
+        font-size: 1.1em;
+      }
+      .date-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+      }
+      .date-day { font-size: 0.85em; opacity: 0.7; }
+      .date-num { font-size: 1em; }
+    </style>
+  </head>
+  <body>
+    <div class="stats-container">
+      <a href="/" class="back-link">&larr; Back to home</a>
+      <h1>📊 Daily Visitor Stats</h1>
+      
+      {sortedPages.length === 0 ? (
+        <div class="empty-state">
+          <p>No visitor data recorded yet.</p>
+          <p>Data will appear once pages receive traffic.</p>
+        </div>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th class="page-header">Page</th>
+              {days.map(day => (
+                <th>
+                  <div class="date-header">
+                    <span class="date-day">{getDayName(day)}</span>
+                    <span class="date-num">{formatDate(day)}</span>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedPages.map(page => {
+              const totals = days.map(d => visitorData[page]?.[d] ?? 0);
+              return (
+                <tr>
+                  <td class="page-name">{page}</td>
+                  {totals.map(count => (
+                    <td class={count > 0 ? "has-data" : "zero"}>
+                      {count}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+            <tr class="total-row">
+              <td class="page-name">Total</td>
+              {days.map(day => {
+                const dayTotal = sortedPages.reduce((sum, page) => sum + (visitorData[page]?.[day] ?? 0), 0);
+                return <td>{dayTotal}</td>;
+              })}
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </div>
+  </body>
+</html>

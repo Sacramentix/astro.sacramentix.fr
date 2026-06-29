@@ -1,9 +1,9 @@
 ---
-import { Icon } from 'astro-iconify';
+import Icon from '../Icon.astro';
 
 ---
 
-<style lang="scss" is:global>
+<style is:global>
 [card-bundle] {
     position: relative;
 
@@ -13,7 +13,7 @@ import { Icon } from 'astro-iconify';
     place-items: center;
     font-size: min(1rem, calc(.5rem + 1vmin));
 
-    // filter: drop-shadow(0 50px 5px rgba(0, 255, 255, 0.323));
+    /* filter: drop-shadow(0 50px 5px rgba(0, 255, 255, 0.323)); */
     > [big-card] {
         position: absolute;
         border-radius: 10px;
@@ -26,8 +26,8 @@ import { Icon } from 'astro-iconify';
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        // align-items: stretch;
-        // filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.649));
+        /* align-items: stretch; */
+        /* filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.649)); */
         box-shadow: 0 0 10px rgba(0, 255, 255, .65);
         h3 {
             margin: 0;

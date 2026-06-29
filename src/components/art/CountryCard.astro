@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-iconify';
+import Icon from '../Icon.astro';
 
 export type Props = {
     name: string
@@ -8,11 +8,11 @@ export type Props = {
 const { name } = Astro.props as Props;
 ---
 
-<style lang="scss" is:global>
+<style is:global>
 [country-card] {
-    // handle only perspective so it's per card and don't get wacky with high number of row
+    /* handle only perspective so it's per card and don't get wacky with high number of row */
     perspective: 120em;
-    // The container of the flag the neon shadow and the text layered with translateZ
+    /* The container of the flag the neon shadow and the text layered with translateZ */
     > div {
         display: grid;
         place-items: center;
@@ -52,7 +52,7 @@ const { name } = Astro.props as Props;
         }
     }
     &:is(:hover, :focus, :focus-visible) {
-        // to disable default focus outline
+        /* to disable default focus outline */
         border: none;
         outline: none;
         > div {

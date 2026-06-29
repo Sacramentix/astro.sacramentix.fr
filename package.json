@@ -9,17 +9,23 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.4.0",
-    "@iconify-json/mdi": "^1.2.2",
-    "astro": "^5.8.1",
-    "sass": "^1.83.0",
-    "unplugin-icons": "^0.22.0"
+    "@astrojs/sitemap": "^3.7.3",
+    "@iconify-json/mdi": "^1.2.3",
+    "astro": "^7.0.3",
+    "lightningcss": "^1.32.0",
+    "sass-embedded": "^1.100.0",
+    "unplugin-icons": "^23.0.1"
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.4.0",
-    "@astrojs/vue": "^5.1.0",
-    "astro-iconify": "^1.2.0",
+    "@astrojs/cloudflare": "^14.0.1",
+    "@astrojs/vue": "^7.0.0",
     "qrcode": "^1.5.4",
-    "vue": "^3.5.13"
+    "vue": "^3.5.39"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.0": true,
+    "esbuild@0.28.1": true,
+    "sharp@0.34.5": true,
+    "workerd@1.20260625.1": true
   }
 }
