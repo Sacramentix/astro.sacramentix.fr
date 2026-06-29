@@ -1,6 +1,8 @@
 ---
 import Icon from '../../components/Icon.astro';
-import QrCode from '../../assets/qr-code-cv.png';
+import { generateQrPng } from '../../utils/qr';
+
+const qrDataUri = await generateQrPng(`${import.meta.env.PUBLIC_SITE_URL}/mon-cv/JES?qr`);
 ---
 <html lang="fr">
 	<head>
@@ -45,7 +47,7 @@ import QrCode from '../../assets/qr-code-cv.png';
                         sur un produit SaaS concret à fort enjeu. Ouvert à un CDI sur Nantes en hybride.
                     </p>
                 </section>
-                <img cv-qr-code src={QrCode.src} width="21" height="21" alt="QR code to this page">
+                <img cv-qr-code src={qrDataUri} width="21" height="21" alt="QR code to this page">
             </div>
             <div cv-content>
                 <section>

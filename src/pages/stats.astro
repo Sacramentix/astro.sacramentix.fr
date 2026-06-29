@@ -20,6 +20,8 @@ const days = getLast7Days();
 
 // Build visitor data: { page: { date: count } }
 const visitorData: Record<string, Record<string, number>> = {};
+// QR-specific visitor data: { page (without ?qr): { date: count } }
+const qrVisitorData: Record<string, Record<string, number>> = {};
 
 const kv: KVNamespace | undefined = env?.VISITORS_KV;
 
@@ -28,19 +30,29 @@ if (kv) {
   const listResult = await kv.list({ prefix: "visits:" });
   
   for (const key of listResult.keys) {
-    // key.name format: "visits:YYYY-MM-DD:/path"
+    // key.name format: "visits:YYYY-MM-DD:/path" or "visits:YYYY-MM-DD:/path?qr"
     const parts = key.name.split(":");
     if (parts.length >= 3) {
       const date = parts[1];
       const page = parts.slice(2).join(":");
       
-      if (!visitorData[page]) {
-        visitorData[page] = {};
-      }
-      
       const val = await kv.get(key.name);
       if (val) {
-        visitorData[page][date] = parseInt(val, 10);
+        const count = parseInt(val, 10);
+        
+        if (page.endsWith("?qr")) {
+          // This is a QR-specific counter
+          const basePage = page.slice(0, -3); // Remove "?qr" suffix
+          if (!qrVisitorData[basePage]) {
+            qrVisitorData[basePage] = {};
+          }
+          qrVisitorData[basePage][date] = count;
+        } else {
+          if (!visitorData[page]) {
+            visitorData[page] = {};
+          }
+          visitorData[page][date] = count;
+        }
       }
     }
   }
@@ -53,6 +65,9 @@ const knownPages = TRACKED_PAGES.filter(p => allPages.includes(p));
 // Add any other pages not in TRACKED_PAGES or mon-cv
 const otherPages = allPages.filter(p => !TRACKED_PAGES.includes(p) && !p.startsWith("/mon-cv/")).sort();
 const sortedPages = [...knownPages, ...monCvPages, ...otherPages];
+
+// Pages that have QR data
+const pagesWithQr = new Set(Object.keys(qrVisitorData));
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T12:00:00Z");
@@ -135,6 +150,9 @@ function getDayName(dateStr: string): string {
       td.has-data {
         color: #19ab19;
       }
+      td.qr-data {
+        color: #b386ff;
+      }
       td.zero {
         color: #555;
       }
@@ -145,6 +163,19 @@ function getDayName(dateStr: string): string {
       .total-row td {
         color: #fab32e;
         border-top: 2px solid #fab32e;
+      }
+      .qr-row {
+        background: #0d0a14 !important;
+      }
+      .qr-row td.page-name {
+        padding-left: 2em;
+        font-weight: normal;
+        color: #b386ff;
+        font-size: 0.9em;
+      }
+      .qr-total-row td {
+        color: #b386ff;
+        border-top: 2px solid #b386ff;
       }
       .empty-state {
         text-align: center;
@@ -189,7 +220,10 @@ function getDayName(dateStr: string): string {
           <tbody>
             {sortedPages.map(page => {
               const totals = days.map(d => visitorData[page]?.[d] ?? 0);
+              const hasQr = pagesWithQr.has(page);
+              const qrTotals = hasQr ? days.map(d => qrVisitorData[page]?.[d] ?? 0) : null;
               return (
+                <>
                 <tr>
                   <td class="page-name">{page}</td>
                   {totals.map(count => (
@@ -198,6 +232,17 @@ function getDayName(dateStr: string): string {
                     </td>
                   ))}
                 </tr>
+                {hasQr && (
+                  <tr class="qr-row">
+                    <td class="page-name">{page} (QR)</td>
+                    {qrTotals!.map(count => (
+                      <td class={count > 0 ? "qr-data" : "zero"}>
+                        {count}
+                      </td>
+                    ))}
+                  </tr>
+                )}
+                </>
               );
             })}
             <tr class="total-row">
@@ -205,6 +250,13 @@ function getDayName(dateStr: string): string {
               {days.map(day => {
                 const dayTotal = sortedPages.reduce((sum, page) => sum + (visitorData[page]?.[day] ?? 0), 0);
                 return <td>{dayTotal}</td>;
+              })}
+            </tr>
+            <tr class="total-row qr-total-row">
+              <td class="page-name">QR Total</td>
+              {days.map(day => {
+                const qrDayTotal = sortedPages.reduce((sum, page) => sum + (qrVisitorData[page]?.[day] ?? 0), 0);
+                return <td>{qrDayTotal}</td>;
               })}
             </tr>
           </tbody>
