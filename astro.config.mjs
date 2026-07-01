@@ -4,22 +4,27 @@ import Icons from 'unplugin-icons/vite';
 
 import vue from "@astrojs/vue";
 
-import netlify from "@astrojs/netlify";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   integrations: [sitemap(), vue()],
 
   vite: {
-    ssr: {
-      external: ["svgo"]
-    },
+    ssr: {},
     plugins: [
       Icons({
         compiler: 'astro'
       })
-    ]
+    ],
+    css: {
+      transformer: 'lightningcss',
+    },
+    build: {
+      cssMinify: 'lightningcss',
+    },
   },
 
-  adapter: netlify()
+  adapter: cloudflare(),
 });
