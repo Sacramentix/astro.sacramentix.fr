@@ -8,7 +8,7 @@ const TRACKED_PAGES = ["/", "/cv", "/ressources"];
 // Generate last 7 days of dates
 function getLast7Days(): string[] {
   const days: string[] = [];
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 0; i < 7; i++) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     days.push(d.toISOString().split("T")[0]);
@@ -17,6 +17,7 @@ function getLast7Days(): string[] {
 }
 
 const days = getLast7Days();
+console.error(days);
 
 // Build visitor data: { page: { date: count } }
 const visitorData: Record<string, Record<string, number>> = {};
