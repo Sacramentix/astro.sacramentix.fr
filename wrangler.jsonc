@@ -8,6 +8,10 @@
       "binding": "VISITORS_KV",
       "id": "9910361fbaa147fb98401b7c60f95232",
       "preview_id": "d3ce4ff6a64848a4948546f867a4b912"
+    },
+    {
+      "binding": "SESSION",
+      "id": "0ed51fd43c354a1997c015a13ed28770"
     }
   ]
 }
