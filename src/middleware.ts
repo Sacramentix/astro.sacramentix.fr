@@ -88,9 +88,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   })();
 
   // Use Cloudflare's waitUntil to keep the worker alive for tracking
-  const runtime = (context.locals as any)?.runtime;
-  if (runtime?.ctx?.waitUntil) {
-    runtime.ctx.waitUntil(trackPromise);
+  const runtime = context.locals.cfContext;
+  if (runtime?.waitUntil) {
+    runtime.waitUntil(trackPromise);
   }
 
   return next();
